@@ -1418,7 +1418,7 @@
             </div>
           </td>
           <td class="py-3 pr-4 text-right">
-            <button onclick="viewClient(${idx})" data-client-index="${idx}" class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5 text-[10px] font-bold text-white transition-colors hover:bg-slate-800 shadow-sm">
+            <button onclick="viewClient(${idx}, true)" data-client-index="${idx}" class="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-1.5 text-[10px] font-bold text-white transition-colors hover:bg-slate-800 shadow-sm">
               View progress
             </button>
           </td>
@@ -3486,7 +3486,7 @@
       });
     }
 
-    function viewClient(idx) {
+    function viewClient(idx, allowClose = false) {
       if (currentUser.role === 'client') {
         const clientIndex = clients.findIndex(c => c.clinicName === currentUser.clinicName);
         if (clientIndex !== -1) {
@@ -3495,7 +3495,7 @@
       }
 
       const activeProjectContainer = document.getElementById('activeProjectContainer');
-      if (currentUser.role !== 'client' && currentClientIdx === idx && !activeProjectContainer.classList.contains('hidden')) {
+      if (allowClose && currentUser.role !== 'client' && currentClientIdx === idx && !activeProjectContainer.classList.contains('hidden')) {
         closeClientProgress();
         return;
       }
