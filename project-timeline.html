@@ -1298,6 +1298,7 @@
 
     // Timeline logic
     const CLIENT_STORAGE_KEY = 'hp_clients';
+    const COLLAPSED_PHASES_STORAGE_KEY = 'hp_collapsed_phases';
     let clients = [];
     let currentClientIdx = -1;
 
@@ -3870,9 +3871,16 @@
       });
     }
 
+    function getCollapseViewerKey() {
+      if (currentUser.role === 'client') {
+        return `client:${currentUser.clinicName || currentUser.username || 'unknown'}`;
+      }
+      return `admin:${currentUser.username || 'admin'}`;
+    }
+
     function getCollapsedPhases() {
       try {
-        return JSON.parse(localStorage.getItem('hp_collapsed_phases') || '{}');
+        return JSON.parse(localStorage.getItem(COLLAPSED_PHASES_STORAGE_KEY) || '{}');
       } catch (e) {
         return {};
       }
@@ -4022,24 +4030,29 @@
 
     function isPhaseCollapsed(clinicName, phaseId) {
       if (!clinicName) return true;
+      const viewerKey = getCollapseViewerKey();
       const collapsed = getCollapsedPhases();
-      if (!collapsed[clinicName]) return true;
-      if (collapsed[clinicName][phaseId] === undefined) return true;
-      return !!collapsed[clinicName][phaseId];
+      if (!collapsed[viewerKey] || !collapsed[viewerKey][clinicName]) return true;
+      if (collapsed[viewerKey][clinicName][phaseId] === undefined) return true;
+      return !!collapsed[viewerKey][clinicName][phaseId];
     }
 
     function togglePhaseCollapse(phaseId) {
       const client = clients[currentClientIdx];
       if (!client) return;
       const clinicName = client.clinicName;
+      const viewerKey = getCollapseViewerKey();
       const collapsed = getCollapsedPhases();
-      if (!collapsed[clinicName]) {
-        collapsed[clinicName] = {};
+      if (!collapsed[viewerKey]) {
+        collapsed[viewerKey] = {};
+      }
+      if (!collapsed[viewerKey][clinicName]) {
+        collapsed[viewerKey][clinicName] = {};
       }
       const currentlyCollapsed = isPhaseCollapsed(clinicName, phaseId);
-      collapsed[clinicName][phaseId] = !currentlyCollapsed;
-      localStorage.setItem('hp_collapsed_phases', JSON.stringify(collapsed));
-      updatePhaseCollapseUI(phaseId, collapsed[clinicName][phaseId]);
+      collapsed[viewerKey][clinicName][phaseId] = !currentlyCollapsed;
+      localStorage.setItem(COLLAPSED_PHASES_STORAGE_KEY, JSON.stringify(collapsed));
+      updatePhaseCollapseUI(phaseId, collapsed[viewerKey][clinicName][phaseId]);
     }
 
     function updatePhaseCollapseUI(phaseId, isCollapsed) {
@@ -5191,7 +5204,7 @@
           viewClient(currentClientIdx);
         }
       }
-      if (e.key === 'hp_collapsed_phases') {
+      if (e.key === COLLAPSED_PHASES_STORAGE_KEY) {
         if (currentClientIdx !== -1) {
           viewClient(currentClientIdx);
         }
