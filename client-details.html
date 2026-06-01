@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Record – Hooked Pilipinas Admin</title>
+  <meta name="description" content="Admin client record management for Hooked Pilipinas Laboratory Consultancy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #f8fafc;
+    }
+
+    .section-panel {
+      display: none;
+    }
+
+    .section-panel.active {
+      display: block;
+    }
+
+    /* Scrollable table wrapper */
+    .table-wrap {
+      overflow-x: auto;
+      position: relative;
+    }
+
+    /* Subtle row hover */
+    tbody tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* Modal animation */
+    #addClientModal {
+      transition: opacity 0.2s;
+    }
+
+    #addClientCard {
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    #setCredentialsModal {
+      transition: opacity 0.2s;
+    }
+
+    #setCredentialsCard {
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+
+    /* Badge colours */
+    .badge-scope {
+      background: #eff6ff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+
+    .badge-cp {
+      background: #f0fdf4;
+      color: #16a34a;
+      border: 1px solid #bbf7d0;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-slate-800 font-sans antialiased">
+
+  <div class="min-h-screen md:flex">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside
+      class="flex w-full flex-col border-b border-blue-800/30 bg-gradient-to-b from-blue-900 to-blue-950 md:sticky md:top-0 md:h-screen md:w-[260px] md:flex-none md:border-b-0 md:border-r md:border-blue-800/30">
+
+      <!-- Header -->
+      <div class="px-6 py-5 border-b border-blue-800/30 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-400/10 rounded-full"></div>
+        <div class="relative z-10">
+          <p class="text-sm font-extrabold tracking-[0.05em] text-white leading-none">HOOKED PILIPINAS</p>
+          <p class="text-[9px] uppercase tracking-[0.25em] text-blue-300 font-semibold mt-1">LABORATORY CONSULTANCY</p>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <nav class="flex-1 px-3 py-4 space-y-5 overflow-y-auto relative">
+        <div class="absolute top-20 right-0 w-40 h-40 bg-blue-600/5 rounded-full"></div>
+        <div class="relative z-10">
+          <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-blue-300/70 mb-2">Workspace</p>
+          <div class="space-y-1">
+            <a href="client-details.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-semibold text-white bg-blue-500/30 border border-blue-400/30 transition-all duration-150 shadow-lg shadow-blue-900/20">
+              <svg class="w-4 h-4 shrink-0 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              </svg>
+              CLIENT RECORD
+            </a>
+            <a href="project-timeline.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19V5M4 19h16M7 16v-3M11 16V8M15 16v-6M19 16v-9" />
+              </svg>
+              PROJECT TIMELINE
+            </a>
+          </div>
+        </div>
+
+        <div class="relative z-10">
+          <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-blue-300/70 mb-2">DOH & Compliance</p>
+          <div class="space-y-1">
+            <a href="hooked-reminders.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8h12M6 12h12M6 16h8" />
+                <circle cx="5" cy="8" r="1" />
+                <circle cx="5" cy="12" r="1" />
+                <circle cx="5" cy="16" r="1" />
+              </svg>
+              HOOKED REMINDERS
+            </a>
+            <a href="doh-reminders.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3 4 7v5c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-4Z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              DOH REMINDERS
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="p-3 border-t border-blue-800/30 bg-blue-900/30">
+        <div
+          class="flex items-center justify-between gap-2 p-2 rounded-xl bg-blue-800/40 border border-blue-700/50 shadow-lg shadow-blue-900/30">
+          <div class="flex items-center gap-2 min-w-0">
+            <div id="userAvatar"
+              class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 text-xs font-bold text-white uppercase shadow-lg">
+              AD</div>
+            <div class="min-w-0 leading-tight">
+              <p id="userFullName" class="truncate text-xs font-bold text-white">Evelyn Admin</p>
+              <p id="userRole" class="truncate text-[10px] text-blue-300 font-medium">HOOKED ADMIN</p>
+            </div>
+          </div>
+          <button id="logoutBtn" type="button"
+            class="h-7 w-7 rounded-lg flex items-center justify-center border border-blue-600/50 text-blue-300 hover:text-white hover:bg-blue-700/50 transition-colors shadow-md"
+            title="Log Out">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Inline script to prevent sidebar flash -->
+    <script>
+      (function() {
+        const storedUser = sessionStorage.getItem('hp_user');
+        if (storedUser) {
+          try {
+            const currentUser = JSON.parse(storedUser);
+            const userAvatar = document.getElementById('userAvatar');
+            const userFullName = document.getElementById('userFullName');
+            const userRoleEl = document.getElementById('userRole');
+            
+            if (currentUser.role === 'client' && userAvatar && userFullName && userRoleEl) {
+              userAvatar.textContent = (currentUser.clinicName || currentUser.username || 'CL').substring(0, 2).toUpperCase();
+              userAvatar.style.backgroundColor = '#2563eb';
+              userFullName.textContent = currentUser.clinicName || currentUser.username;
+              userRoleEl.textContent = 'HOOKED CLIENT';
+              
+              const clientRecordLink = document.querySelector('a[href="client-details.html"]');
+              if (clientRecordLink) clientRecordLink.style.display = 'none';
+            }
+          } catch (e) {}
+        }
+      })();
+    </script>
+
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main class="flex-1 px-4 py-6 sm:px-6 lg:px-8 overflow-y-auto">
+      <div class="mx-auto max-w-full space-y-6">
+
+        <!-- Page Header -->
+        <header
+          class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Admin Panel</p>
+            <h1 class="mt-1 text-2xl font-bold tracking-tight text-slate-900">Client Record Management</h1>
+            <p class="mt-1.5 text-xs leading-relaxed text-slate-500">Manage all registered clients, contracts, payment
+              terms, and proof of payments.</p>
+          </div>
+          <!-- Add Client Button -->
+          <button id="openAddClientBtn" type="button"
+            class="shrink-0 inline-flex items-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-700 text-white text-xs font-bold px-4 py-2.5 transition-all duration-150 shadow-sm">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+            Add Client
+          </button>
+        </header>
+
+        <!-- CLIENT RECORD PANEL -->
+        <section id="client-record" class="section-panel active">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+
+            <!-- Table Toolbar -->
+            <div class="flex items-center justify-between gap-3 px-5 py-4 border-b border-slate-100">
+              <p class="text-xs font-bold text-slate-700 uppercase tracking-wider">All Clients</p>
+              <span id="clientCount"
+                class="text-[10px] font-semibold text-slate-400 bg-slate-100 rounded-full px-3 py-1">0 record(s)</span>
+            </div>
+
+            <!-- Table wrapper -->
+            <div class="table-wrap overflow-x-auto">
+              <table class="w-full border-collapse text-xs">
+
+                <!-- Table -->
+                <div class="table-wrap overflow-visible">
+                  <table class="w-full border-collapse text-xs">
+                    <thead>
+                      <tr class="bg-slate-50 border-b border-slate-200">
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          CP No.</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Name of Clinic</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Location</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Contact Person</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Contact No.</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Email</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Scope</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Package Availed</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Date MOA Signed</th>
+                        <!-- Payment Terms group -->
+                        <th colspan="5"
+                          class="text-center px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap border-l border-slate-200 bg-blue-50/60 text-blue-600">
+                          Payment Terms</th>
+                        <th
+                          class="text-left px-4 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                          Actions</th>
+                      </tr>
+                      <tr class="bg-slate-50/70 border-b border-slate-200">
+                        <!-- Colspan placeholders for base columns -->
+                        <th colspan="9"></th>
+                        <!-- Payment sub-headers -->
+                        <th
+                          class="text-left px-4 py-2 font-bold text-[10px] uppercase tracking-wider text-blue-500 whitespace-nowrap border-l border-slate-200">
+                          Total Contract Price</th>
+                        <th
+                          class="text-left px-4 py-2 font-bold text-[10px] uppercase tracking-wider text-blue-500 whitespace-nowrap">
+                          Amount</th>
+                        <th
+                          class="text-left px-4 py-2 font-bold text-[10px] uppercase tracking-wider text-blue-500 whitespace-nowrap">
+                          Payment Terms</th>
+                        <th
+                          class="text-left px-4 py-2 font-bold text-[10px] uppercase tracking-wider text-blue-500 whitespace-nowrap">
+                          Proof of Payment</th>
+                        <th
+                          class="text-left px-4 py-2 font-bold text-[10px] uppercase tracking-wider text-blue-500 whitespace-nowrap">
+                          Date of Payment / Type</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="clientTableBody">
+                      <!-- Empty state row -->
+                      <tr id="emptyRow">
+                        <td colspan="15" class="px-6 py-14 text-center">
+                          <div class="flex flex-col items-center gap-3">
+                            <div
+                              class="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-300">
+                              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                              </svg>
+                            </div>
+                            <p class="text-xs font-semibold text-slate-400">No client records yet</p>
+                            <p class="text-[10px] text-slate-300">Click <strong>Add Client</strong> above to get
+                              started.</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+            </div>
+
+            <!-- CLIENT ACCOUNT CREDENTIALS -->
+            <div class="mt-6 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <!-- Table Toolbar -->
+              <div class="flex items-center justify-between gap-3 px-5 py-4 border-b border-slate-100 bg-slate-50/20">
+                <div>
+                  <p class="text-xs font-bold text-slate-700 uppercase tracking-wider">Client Account Credentials</p>
+                  <p class="text-[10px] text-slate-400 mt-0.5 font-medium">Use these credentials for client portal login authentication.</p>
+                </div>
+              </div>
+
+              <!-- Table wrapper -->
+              <div class="table-wrap overflow-x-auto">
+                <table class="w-full border-collapse text-xs">
+                  <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200">
+                      <th class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">Client Name (Clinic)</th>
+                      <th class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">Email Address</th>
+                      <th class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">Password</th>
+                      <th class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap w-24">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="credentialsTableBody">
+                    <!-- Empty state row -->
+                    <tr id="credentialsEmptyRow">
+                      <td colspan="4" class="px-6 py-10 text-center">
+                        <div class="flex flex-col items-center gap-2">
+                          <div class="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-300">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                          </div>
+                          <p class="text-xs font-semibold text-slate-400">No client credentials available</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+        </section>
+
+
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ==================== ADD CLIENT MODAL ==================== -->
+  <div id="addClientModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" role="dialog"
+    aria-modal="true">
+    <!-- Backdrop -->
+    <div id="addClientBackdrop" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"></div>
+
+    <!-- Modal Card -->
+    <div id="addClientCard"
+      class="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-100 transform scale-95 opacity-0 max-h-[90vh] overflow-y-auto">
+
+      <!-- Modal Header -->
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-slate-100 sticky top-0 bg-white z-10 rounded-t-2xl">
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Admin</p>
+          <h2 class="text-sm font-bold text-slate-900">Add New Client</h2>
+        </div>
+        <button id="closeAddClientBtn" type="button"
+          class="h-8 w-8 rounded-lg flex items-center justify-center border border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-900 transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <form id="addClientForm" class="px-6 py-5 space-y-5" novalidate>
+
+        <!-- Section: Client Info -->
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-3">Client Information</p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="cpNumber">CP Number <span class="text-red-500">*</span></label>
+              <input id="cpNumber" name="cpNumber" type="text" placeholder="e.g. CP-016-2025" required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="clinicName">Name of Clinic <span class="text-red-500">*</span></label>
+              <input id="clinicName" name="clinicName" type="text" placeholder="e.g. DreamHealth Medical Services"
+                required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="location">Location <span class="text-red-500">*</span></label>
+              <input id="location" name="location" type="text" placeholder="Full address of the clinic" required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="contactPerson">Contact Person <span class="text-red-500">*</span></label>
+              <input id="contactPerson" name="contactPerson" type="text" placeholder="e.g. Ernest James Esteban, MD"
+                required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="contactNumber">Contact Number <span class="text-red-500">*</span></label>
+              <input id="contactNumber" name="contactNumber" type="text" placeholder="e.g. 0917-791-2323" required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="scope">Scope <span class="text-red-500">*</span></label>
+              <input id="scope" name="scope" type="text" placeholder="e.g. ASC Full Turnkey" required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="packageAvailed">Package Availed <span class="text-red-500">*</span></label>
+              <input id="packageAvailed" name="packageAvailed" type="text"
+                placeholder="e.g. Ambulatory Surgical Clinic Full Turnkey" required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="dateMOA">Date MOA Signed <span class="text-red-500">*</span></label>
+              <input id="dateMOA" name="dateMOA" type="date" required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5"
+                for="totalContractPrice">Total Contract Price <span class="text-red-500">*</span></label>
+              <input id="totalContractPrice" name="totalContractPrice" type="text" placeholder="e.g. ₱2,550,000"
+                required
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-slate-100"></div>
+
+        <!-- Section: Payment Terms -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <p class="text-[10px] font-bold uppercase tracking-wider text-blue-500">Payment Terms</p>
+            <button type="button" id="addPaymentRow"
+              class="inline-flex items-center gap-1 text-[10px] font-bold text-slate-500 hover:text-slate-900 border border-slate-200 rounded-lg px-2.5 py-1.5 transition hover:bg-slate-50">
+              <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+              Add Row
+            </button>
+          </div>
+
+          <div id="paymentRowsContainer" class="space-y-3">
+            <div
+              class="payment-row grid gap-2 sm:grid-cols-4 items-start p-3 rounded-xl border border-slate-100 bg-slate-50/40 relative"
+              data-row-id="1">
+              <div>
+                <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Amount</label>
+                <input type="text" name="pt_amount_1" placeholder="₱600,000"
+                  class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition" />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Payment Terms
+                  Description</label>
+                <input type="text" name="pt_terms_1" placeholder="e.g. 23.5% Upon Contract Signing"
+                  class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition" />
+              </div>
+              <div>
+                <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Payment
+                  Type</label>
+                <input type="hidden" name="pt_date_1" value="" />
+                <input type="text" name="pt_type_1" placeholder="Check"
+                  class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition" />
+              </div>
+              <div class="sm:col-span-4">
+                <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Proof of
+                  Payment</label>
+                <div
+                  class="flex items-center gap-2 rounded-xl border border-dashed border-slate-200 bg-white px-3 py-3">
+                  <button type="button"
+                    class="choose-proof-btn inline-flex items-center rounded-lg bg-slate-900 px-3 py-1.5 text-[10px] font-bold text-white transition hover:bg-slate-800"
+                    onclick="this.closest('.payment-row')?.querySelector('input[type=file]')?.click(); return false;">Choose
+                    File</button>
+                  <input type="file" name="pt_proof_1" accept=".pdf,.doc,.docx,image/*" class="proof-input hidden"
+                    onchange="this.closest('.payment-row')?.querySelector('.attachment-label').textContent = this.files[0]?.name || 'No attachment selected';" />
+                  <span class="attachment-label min-w-0 flex-1 truncate text-[10px] text-slate-400">No attachment
+                    selected</span>
+                  <span class="text-[10px] text-slate-400">PDF, Word, JPG, PNG</span>
+                </div>
+              </div>
+              <button type="button"
+                class="remove-payment-row absolute top-2 right-2 h-5 w-5 rounded-full bg-slate-200 hover:bg-red-100 hover:text-red-500 text-slate-400 flex items-center justify-center transition"
+                title="Remove row">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="flex gap-3 pt-2 border-t border-slate-100">
+          <button type="button" id="cancelAddClient"
+            class="flex-1 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 py-2.5 text-xs font-bold transition">
+            Cancel
+          </button>
+          <button type="submit"
+            class="flex-1 rounded-lg bg-slate-900 hover:bg-slate-700 text-white py-2.5 text-xs font-bold transition shadow-sm">
+            Save Client
+          </button>
+          <p id="credentialsHint" class="hidden w-full text-center text-[10px] text-amber-600 font-medium mt-1">
+            ⚡ After saving, you can set the client's login credentials in the <strong>Client Account Credentials</strong> table below.
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== SET CREDENTIALS MODAL ==================== -->
+  <div id="setCredentialsModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <!-- Backdrop -->
+    <div id="setCredentialsBackdrop" class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"></div>
+
+    <!-- Modal Card -->
+    <div id="setCredentialsCard"
+      class="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-slate-100 transform scale-95 opacity-0 overflow-hidden">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-900 to-slate-700">
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Admin · Credentials</p>
+          <h2 class="text-sm font-bold text-white mt-0.5" id="setCredentialsTitle">Set Client Credentials</h2>
+        </div>
+        <button id="closeSetCredentialsBtn" type="button"
+          class="h-8 w-8 rounded-lg flex items-center justify-center border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Client Info Banner -->
+      <div class="px-6 pt-4 pb-2">
+        <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+          <div class="h-9 w-9 rounded-lg bg-slate-900 flex items-center justify-center text-white text-xs font-bold shrink-0" id="credClientAvatar">--</div>
+          <div class="min-w-0">
+            <p class="text-xs font-bold text-slate-900 truncate" id="credClientName">—</p>
+            <p class="text-[10px] text-slate-400 mt-0.5" id="credClientCp">—</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="setCredentialsForm" class="px-6 pb-5 pt-3 space-y-4" novalidate>
+        <input type="hidden" id="credClientIndex" value="" />
+
+        <div>
+          <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5" for="credEmail">
+            Login Email <span class="text-red-500">*</span>
+          </label>
+          <input id="credEmail" name="credEmail" type="email" placeholder="e.g. client@clinic.com" required
+            class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+          <p class="text-[10px] text-slate-400 mt-1">Client will use this to sign in to their portal.</p>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5" for="credPassword">
+            Password <span class="text-red-500">*</span>
+          </label>
+          <div class="relative flex items-center">
+            <input id="credPassword" name="credPassword" type="text" placeholder="Create a secure password" required
+              class="w-full rounded-lg border border-slate-200 bg-slate-50 pl-3 pr-24 py-2.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+            <button type="button" id="generateCredPasswordBtn"
+              class="absolute right-1.5 px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-[10px] font-bold text-white transition">
+              Generate
+            </button>
+          </div>
+        </div>
+
+        <!-- Error message -->
+        <p id="credError" class="hidden text-[10px] font-semibold text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2"></p>
+
+        <!-- Footer -->
+        <div class="flex gap-3 pt-1 border-t border-slate-100">
+          <button type="button" id="cancelSetCredentials"
+            class="flex-1 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 py-2.5 text-xs font-bold transition">
+            Cancel
+          </button>
+          <button type="submit"
+            class="flex-1 rounded-lg bg-slate-900 hover:bg-slate-700 text-white py-2.5 text-xs font-bold transition shadow-sm flex items-center justify-center gap-1.5">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/>
+              <polyline points="7 3 7 8 15 8"/>
+            </svg>
+            Save Credentials
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== LOGOUT MODAL ==================== -->
+  <div id="logoutModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" role="dialog"
+    aria-modal="true">
+    <div id="logoutModalBackdrop" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"></div>
+    <div
+      class="relative w-full max-w-[320px] bg-white rounded-2xl p-6 shadow-xl border border-slate-100 flex flex-col items-center text-center transform scale-95 opacity-0 transition-all duration-200"
+      id="logoutModalCard">
+      <div
+        class="h-12 w-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 mb-4 border border-slate-100">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+        </svg>
+      </div>
+      <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Confirm Logout</h3>
+      <p class="mt-2 text-xs text-slate-500 leading-relaxed">Are you sure you want to log out of your Hooked Pilipinas
+        portal session?</p>
+      <div class="mt-5 flex w-full gap-3">
+        <button id="cancelLogout" type="button"
+          class="flex-1 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 py-2 text-xs font-bold transition">Cancel</button>
+        <button id="confirmLogout" type="button"
+          class="flex-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white py-2 text-xs font-bold transition">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─── Session check ───────────────────────────────────────────────────────────
+    const storedUser = sessionStorage.getItem('hp_user');
+    if (!storedUser) window.location.href = 'index.html';
+
+    let currentUser = { username: 'admin', role: 'admin' };
+    try { if (storedUser) currentUser = JSON.parse(storedUser); } catch (e) { }
+
+    // Redirect client role away from Admin-only Client Record page
+    if (currentUser.role === 'client') {
+      window.location.href = 'project-timeline.html';
+    }
+
+    const userAvatar = document.getElementById('userAvatar');
+    const userFullName = document.getElementById('userFullName');
+    const userRoleEl = document.getElementById('userRole');
+
+    if (currentUser.role === 'admin') {
+      userAvatar.textContent = 'AD';
+      userAvatar.style.backgroundColor = '#0f172a';
+      userFullName.textContent = 'Evelyn Admin';
+      userRoleEl.textContent = 'HOOKED ADMIN';
+    }
+
+    // ─── Sidebar navigation (page-based, no tab switching needed) ─────────────────
+
+    // ─── Logout modal ────────────────────────────────────────────────────────────
+    const logoutModal = document.getElementById('logoutModal');
+    const logoutModalCard = document.getElementById('logoutModalCard');
+    const logoutModalBackdrop = document.getElementById('logoutModalBackdrop');
+
+    function showLogoutModal() {
+      logoutModal.classList.remove('hidden');
+      setTimeout(() => {
+        logoutModalCard.classList.remove('scale-95', 'opacity-0');
+        logoutModalCard.classList.add('scale-100', 'opacity-100');
+      }, 20);
+    }
+    function hideLogoutModal() {
+      logoutModalCard.classList.remove('scale-100', 'opacity-100');
+      logoutModalCard.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => logoutModal.classList.add('hidden'), 150);
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', showLogoutModal);
+    document.getElementById('cancelLogout').addEventListener('click', hideLogoutModal);
+    logoutModalBackdrop.addEventListener('click', hideLogoutModal);
+    document.getElementById('confirmLogout').addEventListener('click', () => {
+      sessionStorage.removeItem('hp_user');
+      window.location.href = 'index.html';
+    });
+
+    // ─── Add Client Modal ─────────────────────────────────────────────────────────
+    const addClientModal = document.getElementById('addClientModal');
+    const addClientCard = document.getElementById('addClientCard');
+    const addClientBackdrop = document.getElementById('addClientBackdrop');
+
+    window.openAddClientModal = openAddClientModal;
+    window.closeAddClientModal = closeAddClientModal;
+    window.addPaymentTermRow = addPaymentTermRow;
+
+    document.getElementById('openAddClientBtn').addEventListener('click', openAddClientModal);
+    document.getElementById('closeAddClientBtn').addEventListener('click', closeAddClientModal);
+    document.getElementById('cancelAddClient').addEventListener('click', closeAddClientModal);
+    addClientBackdrop.addEventListener('click', closeAddClientModal);
+
+    // ─── Set Credentials Modal ────────────────────────────────────────────────────
+    const setCredentialsModal = document.getElementById('setCredentialsModal');
+    const setCredentialsCard = document.getElementById('setCredentialsCard');
+    const setCredentialsBackdrop = document.getElementById('setCredentialsBackdrop');
+
+    function openSetCredentialsModal(clientIndex) {
+      const client = clients[clientIndex];
+      if (!client) return;
+
+      // Populate the banner
+      document.getElementById('credClientIndex').value = clientIndex;
+      document.getElementById('credClientName').textContent = client.clinicName || '—';
+      document.getElementById('credClientCp').textContent = 'CP No. ' + (client.cpNumber || '—');
+      const initials = (client.clinicName || 'CL').substring(0, 2).toUpperCase();
+      document.getElementById('credClientAvatar').textContent = initials;
+
+      // Pre-fill if credentials already exist
+      document.getElementById('credEmail').value = client.loginEmail || '';
+      document.getElementById('credPassword').value = client.password || '';
+
+      const hasCredentials = !!(client.loginEmail && client.password);
+      document.getElementById('setCredentialsTitle').textContent = hasCredentials ? 'Edit Client Credentials' : 'Set Client Credentials';
+
+      // Clear error
+      const errEl = document.getElementById('credError');
+      errEl.textContent = '';
+      errEl.classList.add('hidden');
+
+      setCredentialsModal.classList.remove('hidden');
+      setTimeout(() => {
+        setCredentialsCard.classList.remove('scale-95', 'opacity-0');
+        setCredentialsCard.classList.add('scale-100', 'opacity-100');
+      }, 20);
+    }
+
+    function closeSetCredentialsModal() {
+      setCredentialsCard.classList.remove('scale-100', 'opacity-100');
+      setCredentialsCard.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        setCredentialsModal.classList.add('hidden');
+        document.getElementById('setCredentialsForm').reset();
+      }, 150);
+    }
+
+    document.getElementById('closeSetCredentialsBtn').addEventListener('click', closeSetCredentialsModal);
+    document.getElementById('cancelSetCredentials').addEventListener('click', closeSetCredentialsModal);
+    setCredentialsBackdrop.addEventListener('click', closeSetCredentialsModal);
+
+    document.getElementById('generateCredPasswordBtn').addEventListener('click', () => {
+      document.getElementById('credPassword').value = generateRandomPassword();
+    });
+
+    document.getElementById('setCredentialsForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const idx = parseInt(document.getElementById('credClientIndex').value, 10);
+      const loginEmail = document.getElementById('credEmail').value.trim();
+      const password = document.getElementById('credPassword').value.trim();
+      const errEl = document.getElementById('credError');
+
+      if (!loginEmail || !password) {
+        errEl.textContent = 'Both email and password are required.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      // Check if email is already used by another client
+      const duplicate = clients.some((c, i) => i !== idx && c.loginEmail === loginEmail);
+      if (duplicate) {
+        errEl.textContent = 'This email is already used by another client. Please use a different email.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      clients[idx].loginEmail = loginEmail;
+      clients[idx].password = password;
+      saveClients();
+      renderCredentialsTable();
+      closeSetCredentialsModal();
+    });
+
+    window.openSetCredentialsModal = openSetCredentialsModal;
+
+    // ─── Payment Term Rows ────────────────────────────────────────────────────────
+    let paymentRowCount = 1;
+
+    document.getElementById('addPaymentRow').addEventListener('click', addPaymentTermRow);
+
+    // ─── Client Data Store ────────────────────────────────────────────────────────
+    const CLIENT_STORAGE_KEY = 'hp_clients';
+    let clients = [];
+    let editingIndex = null;
+
+    function generateRandomPassword() {
+      const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+      let pass = 'HP@';
+      for (let i = 0; i < 8; i++) {
+        pass += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return pass;
+    }
+
+    function getPasswordForDisplay(client) {
+      return client.password || '';
+    }
+
+    function copyToClipboard(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = `<svg class="h-3 w-3 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+        btn.classList.add('border-green-200', 'bg-green-50');
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.classList.remove('border-green-200', 'bg-green-50');
+        }, 1200);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    }
+
+    function togglePasswordVisibility(idx, password) {
+      const el = document.getElementById(`password-display-${idx}`);
+      const btn = document.getElementById(`password-toggle-${idx}`);
+      const isMasked = el.textContent === '••••••••';
+      
+      if (isMasked) {
+        el.textContent = password;
+        el.classList.remove('select-none');
+        btn.innerHTML = `<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.52 13.52 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>`;
+        btn.title = "Hide Password";
+      } else {
+        el.textContent = '••••••••';
+        el.classList.add('select-none');
+        btn.innerHTML = `<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/><circle cx="12" cy="12" r="3"/></svg>`;
+        btn.title = "Show Password";
+      }
+    }
+
+    function renderCredentialsTable() {
+      const tbody = document.getElementById('credentialsTableBody');
+      const emptyRow = document.getElementById('credentialsEmptyRow');
+
+      // Remove dynamic rows
+      [...tbody.querySelectorAll('tr.credential-row')].forEach(r => r.remove());
+
+      if (clients.length === 0) {
+        emptyRow.style.display = '';
+        return;
+      }
+      emptyRow.style.display = 'none';
+
+      clients.forEach((client, idx) => {
+        const hasCredentials = !!(client.loginEmail && client.password);
+        const displayEmail = client.loginEmail || '';
+        const displayPassword = client.password || '';
+        const passwordId = `password-display-${idx}`;
+        const toggleBtnId = `password-toggle-${idx}`;
+        const row = document.createElement('tr');
+        row.className = 'credential-row border-b border-slate-100 align-middle hover:bg-slate-50/40 transition-colors';
+
+        if (!hasCredentials) {
+          // No credentials set yet — show a prompt row
+          row.innerHTML = `
+            <td class="px-5 py-3.5 whitespace-nowrap">
+              <div class="font-semibold text-slate-800">${escHtml(client.clinicName)}</div>
+              <div class="text-[10px] text-slate-400 mt-0.5 font-medium">${escHtml(client.contactPerson)}</div>
+            </td>
+            <td class="px-5 py-3.5 whitespace-nowrap" colspan="2">
+              <span class="inline-flex items-center gap-1.5 text-[10px] font-semibold text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-3 py-1">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                No credentials set
+              </span>
+            </td>
+            <td class="px-5 py-3.5 whitespace-nowrap">
+              <button type="button" onclick="openSetCredentialsModal(${idx})"
+                class="inline-flex items-center gap-1.5 rounded-lg border border-slate-900 bg-slate-900 hover:bg-slate-700 px-3 py-1.5 text-[10px] font-bold text-white transition shadow-sm">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Set Credentials
+              </button>
+            </td>
+          `;
+        } else {
+          // Has credentials — show them
+          row.innerHTML = `
+            <td class="px-5 py-3.5 whitespace-nowrap">
+              <div class="font-semibold text-slate-800">${escHtml(client.clinicName)}</div>
+              <div class="text-[10px] text-slate-400 mt-0.5 font-medium">${escHtml(client.contactPerson)}</div>
+            </td>
+            <td class="px-5 py-3.5 whitespace-nowrap text-slate-600 font-medium">
+              <div class="flex items-center gap-2">
+                <span>${escHtml(displayEmail)}</span>
+                <button type="button" onclick="copyToClipboard('${escHtml(displayEmail)}', this)" class="inline-flex h-6 w-6 items-center justify-center rounded border border-slate-200 bg-white text-slate-400 hover:text-slate-900 hover:bg-slate-50 transition shadow-sm" title="Copy Email">
+                  <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </button>
+              </div>
+            </td>
+            <td class="px-5 py-3.5 whitespace-nowrap">
+              <div class="flex items-center gap-2">
+                <span id="${passwordId}" class="font-mono text-xs text-slate-600 tracking-wider bg-slate-50 px-2 py-1 rounded border border-slate-200/60 select-none">••••••••</span>
+                <button type="button" id="${toggleBtnId}" onclick="togglePasswordVisibility(${idx}, '${escHtml(displayPassword)}')" class="inline-flex h-6 w-6 items-center justify-center rounded border border-slate-200 bg-white text-slate-400 hover:text-slate-900 hover:bg-slate-50 transition shadow-sm" title="Show Password">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+                <button type="button" onclick="copyToClipboard('${escHtml(displayPassword)}', this)" class="inline-flex h-6 w-6 items-center justify-center rounded border border-slate-200 bg-white text-slate-400 hover:text-slate-900 hover:bg-slate-50 transition shadow-sm" title="Copy Password">
+                  <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </button>
+              </div>
+            </td>
+            <td class="px-5 py-3.5 whitespace-nowrap">
+              <button type="button" onclick="openSetCredentialsModal(${idx})"
+                class="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[10px] font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition shadow-sm">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                Edit
+              </button>
+            </td>
+          `;
+        }
+        tbody.appendChild(row);
+      });
+    }
+
+    window.copyToClipboard = copyToClipboard;
+    window.togglePasswordVisibility = togglePasswordVisibility;
+
+    function saveClients() {
+      localStorage.setItem(CLIENT_STORAGE_KEY, JSON.stringify(clients));
+    }
+
+    function loadClients() {
+      try {
+        const storedClients = localStorage.getItem(CLIENT_STORAGE_KEY);
+        clients = storedClients ? JSON.parse(storedClients) : [];
+        // Migrate old clients: move password-only records to use loginEmail field
+        clients.forEach(c => {
+          if (!c.loginEmail && c.email && c.password) {
+            // If they had a password but no loginEmail, keep password but don't auto-assign loginEmail
+            // (admin should set explicitly via modal)
+          }
+        });
+      } catch (error) {
+        clients = [];
+      }
+    }
+
+    function resetClientForm() {
+      document.getElementById('addClientForm').reset();
+
+      paymentRowCount = 0;
+
+      document.getElementById('paymentRowsContainer').innerHTML = '';
+
+      addPaymentTermRow();
+    }
+
+    function setModalMode(mode) {
+      const title = document.querySelector('#addClientCard h2');
+      const submitButton = document.querySelector('#addClientForm button[type="submit"]');
+
+      if (mode === 'edit') {
+        title.textContent = 'Update Client';
+        submitButton.textContent = 'Update Client';
+      } else {
+        title.textContent = 'Add New Client';
+        submitButton.textContent = 'Save Client';
+      }
+    }
+
+    function addPaymentTermRow(values = {}) {
+      paymentRowCount++;
+      const container = document.getElementById('paymentRowsContainer');
+      const row = document.createElement('div');
+      row.className = 'payment-row grid gap-2 sm:grid-cols-4 items-start p-3 rounded-xl border border-slate-100 bg-slate-50/40 relative';
+      row.dataset.rowId = paymentRowCount;
+      row.dataset.existingAttachment = JSON.stringify(values.proofAttachment || null);
+      row.innerHTML = `
+        <div>
+          <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Amount</label>
+          <input type="text" name="pt_amount_${paymentRowCount}" placeholder="₱600,000"
+            class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition" />
+        </div>
+        <div class="sm:col-span-2">
+          <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Payment Terms Description</label>
+          <input type="text" name="pt_terms_${paymentRowCount}" placeholder="e.g. 23.5% Upon Contract Signing"
+            class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition" />
+        </div>
+        <div>
+          <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Payment Type</label>
+          <input type="hidden" name="pt_date_${paymentRowCount}" value="${values.date || ''}" />
+          <input type="text" name="pt_type_${paymentRowCount}" placeholder="Check"
+            class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition" />
+        </div>
+        <div class="sm:col-span-4">
+          <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Proof of Payment</label>
+          <div class="flex items-center gap-2 rounded-xl border border-dashed border-slate-200 bg-white px-3 py-3">
+            <button type="button" class="choose-proof-btn inline-flex items-center rounded-lg bg-slate-900 px-3 py-1.5 text-[10px] font-bold text-white transition hover:bg-slate-800">Choose File</button>
+            <input type="file" name="pt_proof_${paymentRowCount}" accept=".pdf,.doc,.docx,image/*" class="proof-input hidden" />
+            <span class="attachment-label min-w-0 flex-1 truncate text-[10px] text-slate-400">${values.proofAttachment?.name ? escHtml(values.proofAttachment.name) : 'No attachment selected'}</span>
+            <span class="text-[10px] text-slate-400">PDF, Word, JPG, PNG</span>
+          </div>
+        </div>
+        <button type="button" class="remove-payment-row absolute top-2 right-2 h-5 w-5 rounded-full bg-slate-200 hover:bg-red-100 hover:text-red-500 text-slate-400 flex items-center justify-center transition" title="Remove row">
+          <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      `;
+
+      row.querySelector(`[name="pt_amount_${paymentRowCount}"]`).value = values.amount || '';
+      row.querySelector(`[name="pt_terms_${paymentRowCount}"]`).value = values.terms || '';
+      row.querySelector(`[name="pt_date_${paymentRowCount}"]`).value = values.date || '';
+      row.querySelector(`[name="pt_type_${paymentRowCount}"]`).value = values.type || '';
+
+      row.querySelector('.remove-payment-row').addEventListener('click', () => row.remove());
+      const chooseBtn = row.querySelector('.choose-proof-btn');
+      const fileInput = row.querySelector(`[name="pt_proof_${paymentRowCount}"]`);
+      const label = row.querySelector('.attachment-label');
+
+      chooseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        fileInput.click();
+      });
+
+      fileInput.addEventListener('change', () => {
+        label.textContent = fileInput.files?.[0]?.name || JSON.parse(row.dataset.existingAttachment || 'null')?.name || 'No attachment selected';
+      });
+      container.appendChild(row);
+    }
+
+    function populateClientForm(client) {
+      document.getElementById('cpNumber').value = client.cpNumber || '';
+      document.getElementById('clinicName').value = client.clinicName || '';
+      document.getElementById('location').value = client.location || '';
+      document.getElementById('contactPerson').value = client.contactPerson || '';
+      document.getElementById('contactNumber').value = client.contactNumber || '';
+      document.getElementById('email').value = client.email || '';
+      document.getElementById('scope').value = client.scope || '';
+      document.getElementById('packageAvailed').value = client.packageAvailed || '';
+      document.getElementById('dateMOA').value = client.dateMOA || '';
+      document.getElementById('totalContractPrice').value = client.totalContractPrice || '';
+
+      document.getElementById('paymentRowsContainer').innerHTML = '';
+      const paymentTerms = client.paymentTerms || [];
+      if (paymentTerms.length === 0) {
+        addPaymentTermRow();
+        return;
+      }
+
+      paymentTerms.forEach((paymentTerm) => addPaymentTermRow(paymentTerm));
+    }
+
+    function startEditClient(index) {
+      const client = clients[index];
+      if (!client) return;
+
+      editingIndex = index;
+      setModalMode('edit');
+      resetClientForm();
+      populateClientForm(client);
+      openAddClientModal();
+    }
+
+    function openAddClientModal() {
+      addClientModal.classList.remove('hidden');
+      setTimeout(() => {
+        addClientCard.classList.remove('scale-95', 'opacity-0');
+        addClientCard.classList.add('scale-100', 'opacity-100');
+      }, 20);
+      // Ensure at least one payment row
+      if (document.getElementById('paymentRowsContainer').children.length === 0) {
+        addPaymentTermRow();
+      }
+    }
+
+    function closeAddClientModal() {
+      addClientCard.classList.remove('scale-100', 'opacity-100');
+      addClientCard.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        addClientModal.classList.add('hidden');
+        editingIndex = null;
+        setModalMode('add');
+        resetClientForm();
+      }, 150);
+    }
+
+    loadClients();
+    if (clients.length === 0) {
+      saveClients();
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '—';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function formatDateTime(dateStr) {
+      if (!dateStr) return '—';
+      const d = new Date(dateStr);
+      return d.toLocaleString('en-PH', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit'
+      });
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('clientTableBody');
+      const emptyRow = document.getElementById('emptyRow');
+      const clientCount = document.getElementById('clientCount');
+
+      clientCount.textContent = `${clients.length} record(s)`;
+
+      // Remove all rows except emptyRow
+      [...tbody.querySelectorAll('tr.client-row')].forEach(r => r.remove());
+
+      // Trigger credentials table render
+      renderCredentialsTable();
+
+      if (clients.length === 0) {
+        emptyRow.style.display = '';
+        return;
+      }
+      emptyRow.style.display = 'none';
+
+      clients.forEach((client, idx) => {
+        // Build payment rows HTML (first row spans multiple, rest are sub-rows)
+        const payTerms = client.paymentTerms || [];
+        const rowspan = Math.max(payTerms.length, 1);
+
+        let mainRow = `
+          <tr class="client-row border-b border-slate-100 align-top" data-idx="${idx}">
+            <td class="px-4 py-3 whitespace-nowrap">
+              <span class="badge-cp px-2 py-0.5 rounded-full text-[10px] font-bold">${escHtml(client.cpNumber)}</span>
+            </td>
+            <td class="px-4 py-3 font-semibold text-slate-800 whitespace-nowrap">${escHtml(client.clinicName)}</td>
+            <td class="px-4 py-3 text-slate-500 max-w-[180px] leading-relaxed">${escHtml(client.location)}</td>
+            <td class="px-4 py-3 whitespace-nowrap font-medium text-slate-700">${escHtml(client.contactPerson)}</td>
+            <td class="px-4 py-3 whitespace-nowrap text-slate-500">${escHtml(client.contactNumber)}</td>
+            <td class="px-4 py-3 text-slate-500 max-w-[150px]">${escHtml(client.email)}</td>
+            <td class="px-4 py-3 whitespace-nowrap">
+              <span class="badge-scope px-2 py-0.5 rounded-full text-[10px] font-bold">${escHtml(client.scope)}</span>
+            </td>
+            <td class="px-4 py-3 text-slate-600 max-w-[160px] leading-relaxed">${escHtml(client.packageAvailed)}</td>
+            <td class="px-4 py-3 whitespace-nowrap text-slate-500">${formatDate(client.dateMOA)}</td>
+        `;
+
+        if (payTerms.length === 0) {
+          mainRow += `
+            <td class="px-4 py-3 font-bold text-slate-800 border-l border-slate-100 whitespace-nowrap">${escHtml(client.totalContractPrice)}</td>
+            <td class="px-4 py-3 text-slate-400">—</td>
+            <td class="px-4 py-3 text-slate-400">—</td>
+            <td class="px-4 py-3 text-slate-400">—</td>
+            <td class="px-4 py-3 text-slate-400">—</td>
+          `;
+        } else {
+          mainRow += `
+            <td class="px-4 py-3 font-bold text-slate-800 border-l border-slate-100 whitespace-nowrap" rowspan="${rowspan}">${escHtml(client.totalContractPrice)}</td>
+            <td class="px-4 py-3 text-slate-700 font-medium whitespace-nowrap">${escHtml(payTerms[0].amount)}</td>
+            <td class="px-4 py-3 text-slate-500 leading-relaxed max-w-[200px]">${escHtml(payTerms[0].terms)}</td>
+            <td class="px-4 py-3 text-slate-500 whitespace-nowrap">${attachmentCellHtml(payTerms[0].proofAttachment, idx, 0)}</td>
+            <td class="px-4 py-3 text-slate-500 whitespace-nowrap">${payTerms[0].date ? formatDateTime(payTerms[0].date) : '—'} ${payTerms[0].type ? '· ' + escHtml(payTerms[0].type) : ''}</td>
+          `;
+        }
+
+        mainRow += `
+            <td class="px-4 py-3 whitespace-nowrap" ${payTerms.length > 1 ? `rowspan="${rowspan}"` : ''}>
+              <div class="relative inline-block text-left client-actions" data-idx="${idx}">
+                <button type="button" class="client-actions-toggle inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[10px] font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition" aria-expanded="false">
+                  Actions
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                 <div class="client-actions-menu absolute right-0 top-full z-[99999] hidden w-32 rounded-xl border border-slate-200 bg-white shadow-xl mt-1">
+                  <button type="button" class="edit-client-btn flex w-full items-center gap-2 px-3 py-2 text-left text-[10px] font-bold text-slate-700 hover:bg-slate-50 hover:text-slate-900" data-idx="${idx}">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                    Edit
+                  </button>
+                  <button type="button" class="delete-client-btn flex w-full items-center gap-2 px-3 py-2 text-left text-[10px] font-bold text-red-500 hover:bg-red-50 hover:text-red-600" data-idx="${idx}">
+                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        `;
+
+        tbody.insertAdjacentHTML('beforeend', mainRow);
+
+        // Additional payment rows (sub-rows)
+        for (let i = 1; i < payTerms.length; i++) {
+          const subRow = `
+            <tr class="client-row border-b border-slate-100 align-top" data-idx="${idx}">
+              <td colspan="9"></td>
+              <td class="px-4 py-2 text-slate-700 font-medium whitespace-nowrap">${escHtml(payTerms[i].amount)}</td>
+              <td class="px-4 py-2 text-slate-500 leading-relaxed max-w-[200px]">${escHtml(payTerms[i].terms)}</td>
+              <td class="px-4 py-2 text-slate-500 whitespace-nowrap">${attachmentCellHtml(payTerms[i].proofAttachment, idx, i)}</td>
+              <td class="px-4 py-2 text-slate-500 whitespace-nowrap">${payTerms[i].date ? formatDateTime(payTerms[i].date) : '—'} ${payTerms[i].type ? '· ' + escHtml(payTerms[i].type) : ''}</td>
+            </tr>
+          `;
+          tbody.insertAdjacentHTML('beforeend', subRow);
+        }
+      });
+
+      // Row action handlers
+      document.querySelectorAll('.edit-client-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          startEditClient(parseInt(this.dataset.idx, 10));
+        });
+      });
+
+      document.querySelectorAll('.delete-client-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const i = parseInt(this.dataset.idx, 10);
+          if (confirm(`Delete client "${clients[i].clinicName}"?`)) {
+            clients.splice(i, 1);
+            saveClients();
+            if (editingIndex === i) {
+              editingIndex = null;
+              setModalMode('add');
+              resetClientForm();
+            } else if (editingIndex !== null && editingIndex > i) {
+              editingIndex -= 1;
+            }
+            renderTable();
+          }
+        });
+      });
+
+      document.querySelectorAll('.client-actions-toggle').forEach(btn => {
+        btn.addEventListener('click', function (event) {
+          event.stopPropagation();
+          const menu = this.nextElementSibling;
+          const isOpen = !menu.classList.contains('hidden');
+
+          document.querySelectorAll('.client-actions-menu').forEach(otherMenu => {
+            if (otherMenu !== menu) otherMenu.classList.add('hidden');
+          });
+
+          if (isOpen) {
+            menu.classList.add('hidden');
+            this.setAttribute('aria-expanded', 'false');
+          } else {
+            menu.classList.remove('hidden');
+            this.setAttribute('aria-expanded', 'true');
+
+            // Position dynamically to avoid clipping inside overflow-x-auto containers
+            const rect = this.getBoundingClientRect();
+            menu.style.position = 'fixed';
+            menu.style.top = `${rect.bottom + 4}px`;
+            const menuWidth = menu.offsetWidth || 128; // fallback to 128px (w-32)
+            menu.style.left = `${rect.right - menuWidth}px`;
+            menu.style.zIndex = '99999';
+          }
+        });
+      });
+
+      document.querySelectorAll('.view-attachment-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const clientIndex = parseInt(this.dataset.clientIdx, 10);
+          const termIndex = parseInt(this.dataset.termIdx, 10);
+          openAttachmentPreview(clients[clientIndex]?.paymentTerms?.[termIndex]?.proofAttachment);
+        });
+      });
+    }
+
+    function attachmentCellHtml(attachment, clientIdx, termIdx) {
+      if (!attachment?.name) return '—';
+      return `
+        <div class="flex items-center gap-2">
+          <span class="max-w-[130px] truncate text-slate-700 font-medium" title="${escHtml(attachment.name)}">${escHtml(attachment.name)}</span>
+          <button type="button" class="view-attachment-btn inline-flex items-center rounded-lg border border-slate-200 px-2 py-1 text-[10px] font-bold text-slate-600 hover:text-slate-900 hover:border-slate-300 transition" data-client-idx="${clientIdx}" data-term-idx="${termIdx}">View</button>
+        </div>
+      `;
+    }
+
+    function openAttachmentPreview(attachment) {
+      const previewModal = document.getElementById('attachmentModal');
+      const previewTitle = document.getElementById('attachmentTitle');
+      const previewBody = document.getElementById('attachmentPreviewBody');
+      const previewDownload = document.getElementById('attachmentDownload');
+
+      if (!attachment?.dataUrl) return;
+
+      previewTitle.textContent = attachment.name || 'Attached File';
+      previewDownload.href = attachment.dataUrl;
+      previewDownload.download = attachment.name || 'attachment';
+
+      const isImage = attachment.type?.startsWith('image/');
+      const isPdf = attachment.type === 'application/pdf' || (attachment.name || '').toLowerCase().endsWith('.pdf');
+
+      if (isImage) {
+        previewBody.innerHTML = `<img src="${attachment.dataUrl}" alt="${escHtml(attachment.name || 'Attachment')}" class="max-h-[70vh] w-auto max-w-full rounded-xl border border-slate-200" />`;
+      } else if (isPdf) {
+        previewBody.innerHTML = `<iframe src="${attachment.dataUrl}" title="${escHtml(attachment.name || 'Attachment')}" class="h-[70vh] w-full rounded-xl border border-slate-200 bg-white"></iframe>`;
+      } else {
+        previewBody.innerHTML = `
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-6 text-left">
+            <p class="text-sm font-bold text-slate-900">Preview not available for this file type</p>
+            <p class="mt-1 text-xs text-slate-500">Use the download button to open the attached document.</p>
+          </div>
+        `;
+      }
+
+      previewModal.classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('attachmentCard').classList.remove('scale-95', 'opacity-0');
+        document.getElementById('attachmentCard').classList.add('scale-100', 'opacity-100');
+      }, 20);
+    }
+
+    function closeAttachmentPreview() {
+      const previewModal = document.getElementById('attachmentModal');
+      const previewCard = document.getElementById('attachmentCard');
+      previewCard.classList.remove('scale-100', 'opacity-100');
+      previewCard.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => previewModal.classList.add('hidden'), 150);
+    }
+
+    function readFileAsDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function escHtml(str) {
+      if (!str) return '—';
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    // ─── Form Submit ──────────────────────────────────────────────────────────────
+    async function addClientFormSubmit(e) {
+      console.log('addClientFormSubmit called');
+      try { window._submitCalled = true; } catch (e) { }
+      e.preventDefault();
+
+      const get = id => document.getElementById(id)?.value?.trim() ?? '';
+
+      // Validate required fields
+      const required = ['cpNumber', 'clinicName', 'location', 'contactPerson', 'contactNumber', 'scope', 'packageAvailed', 'dateMOA', 'totalContractPrice'];
+      let valid = true;
+      required.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.classList.add('border-red-400', 'ring-1', 'ring-red-300');
+          valid = false;
+        } else {
+          el.classList.remove('border-red-400', 'ring-1', 'ring-red-300');
+        }
+      });
+      if (!valid) return false;
+
+      // Collect payment rows
+      const paymentRows = [...document.querySelectorAll('.payment-row')];
+      const paymentTimestamp = new Date().toISOString();
+      const paymentTerms = (
+        await Promise.all(
+          paymentRows.map(async row => {
+            const rowId = row.dataset.rowId;
+
+            const fileInput = row.querySelector(`[name="pt_proof_${rowId}"]`);
+            const selectedFile = fileInput?.files?.[0] || null;
+
+            const existingAttachment =
+              JSON.parse(row.dataset.existingAttachment || 'null');
+
+            let proofAttachment = existingAttachment;
+
+            if (selectedFile) {
+              proofAttachment = {
+                name: selectedFile.name,
+                type: selectedFile.type,
+                dataUrl: await readFileAsDataUrl(selectedFile)
+              };
+            }
+
+            return {
+              amount: row.querySelector(`[name="pt_amount_${rowId}"]`)?.value?.trim() || '',
+              terms: row.querySelector(`[name="pt_terms_${rowId}"]`)?.value?.trim() || '',
+              date: paymentTimestamp,
+              type: row.querySelector(`[name="pt_type_${rowId}"]`)?.value?.trim() || '',
+              proofAttachment
+            };
+          })
+        )
+      ).filter(pt => pt.amount || pt.terms || pt.proofAttachment);
+
+
+      const clientRecord = {
+        cpNumber: get('cpNumber'),
+        clinicName: get('clinicName'),
+        location: get('location'),
+        contactPerson: get('contactPerson'),
+        contactNumber: get('contactNumber'),
+        email: get('email'),
+        scope: get('scope'),
+        packageAvailed: get('packageAvailed'),
+        dateMOA: get('dateMOA'),
+        totalContractPrice: get('totalContractPrice'),
+        paymentTerms: paymentTerms,
+        // Preserve existing credentials if editing; new clients start with no login credentials
+        loginEmail: editingIndex !== null ? (clients[editingIndex].loginEmail || '') : '',
+        password: editingIndex !== null ? (clients[editingIndex].password || '') : '',
+      };
+
+      const isNew = editingIndex === null;
+      if (isNew) {
+        clients.push(clientRecord);
+      } else {
+        clients[editingIndex] = clientRecord;
+      }
+
+      saveClients();
+      renderTable();
+      closeAddClientModal();
+
+      // Prompt admin to set credentials for new clients
+      if (isNew) {
+        setTimeout(() => {
+          openSetCredentialsModal(clients.length - 1);
+        }, 300);
+      }
+
+      return false;
+    }
+
+    // Attach submit handler to the form (use onsubmit property to guarantee invocation)
+    document.getElementById('addClientForm').onsubmit = addClientFormSubmit;
+
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.client-actions-menu').forEach(menu => menu.classList.add('hidden'));
+      document.querySelectorAll('.client-actions-toggle').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.client-actions-menu').forEach(menu => menu.classList.add('hidden'));
+      document.querySelectorAll('.client-actions-toggle').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+    }, true);
+
+    // Initialize static payment row file input
+    (function () {
+      const fileInput = document.querySelector('input[name="pt_proof_1"]');
+      const label = document.querySelector('.attachment-label');
+      const button = document.querySelector('.choose-proof-btn');
+
+      const firstRow = document.querySelector('.payment-row');
+
+      if (firstRow) {
+        firstRow.dataset.existingAttachment = 'null';
+      }
+
+      if (fileInput && label && button) {
+        // File input change listener (handles both user selection and programmatic changes)
+        fileInput.addEventListener('change', function () {
+          label.textContent = this.files?.[0]?.name || 'No attachment selected';
+        });
+
+        // Button click listener (redundant with onclick but ensures it works)
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
+          fileInput.click();
+          return false;
+        });
+      }
+    })();
+
+    // Initial render
+    renderTable();
+
+    // Hooked Reminders Notification Badge Logic for Client Sidebar
+    function updateHookedRemindersBadge() {
+      const storedUser = sessionStorage.getItem('hp_user');
+      if (!storedUser) return;
+      let currentUser = null;
+      try { currentUser = JSON.parse(storedUser); } catch(e) {}
+      if (!currentUser || currentUser.role !== 'client') return;
+
+      const postsKey = 'hp_blog_posts';
+      const lastViewedKey = 'hp_last_viewed_reminders_' + currentUser.username;
+      
+      const storedPosts = localStorage.getItem(postsKey);
+      const posts = storedPosts ? JSON.parse(storedPosts) : [];
+
+      const isRemindersPage = window.location.pathname.endsWith('hooked-reminders.html');
+      
+      if (isRemindersPage && posts.length > 0) {
+        const maxTimestamp = posts.reduce((max, p) => p.timestamp > max ? p.timestamp : max, 0);
+        localStorage.setItem(lastViewedKey, String(maxTimestamp));
+      }
+
+      const lastViewed = parseInt(localStorage.getItem(lastViewedKey) || '0', 10);
+      const unreadCount = posts.filter(p => p.timestamp > lastViewed).length;
+
+      const remindersLink = document.querySelector('a[href="hooked-reminders.html"]');
+      if (remindersLink) {
+        if (unreadCount > 0 && !isRemindersPage) {
+          remindersLink.classList.add('relative');
+          let badge = remindersLink.querySelector('.notifications-badge');
+          if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'notifications-badge absolute top-1 right-2 shrink-0 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-red-600 px-1 text-[8px] font-extrabold text-white border border-white';
+            badge.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.15)';
+            remindersLink.appendChild(badge);
+          }
+          badge.textContent = unreadCount;
+        } else {
+          const badge = remindersLink.querySelector('.notifications-badge');
+          if (badge) badge.remove();
+        }
+      }
+    }
+    updateHookedRemindersBadge();
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === CLIENT_STORAGE_KEY) {
+        loadClients();
+        renderTable();
+      }
+      if (e.key === 'hp_blog_posts' || (e.key && e.key.startsWith('hp_last_viewed_reminders_'))) {
+        updateHookedRemindersBadge();
+      }
+    });
+  </script>
+
+  <!-- Attachment Preview Modal -->
+  <div id="attachmentModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" role="dialog"
+    aria-modal="true">
+    <div id="attachmentBackdrop" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"></div>
+    <div id="attachmentCard"
+      class="relative w-full max-w-4xl bg-white rounded-2xl p-5 shadow-xl border border-slate-100 transform scale-95 opacity-0 transition-all duration-200">
+      <div class="flex items-center justify-between gap-3 pb-4 border-b border-slate-100">
+        <div class="min-w-0">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Attached File</p>
+          <h3 id="attachmentTitle" class="truncate text-sm font-bold text-slate-900">Attachment</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <a id="attachmentDownload" href="#"
+            class="inline-flex items-center rounded-lg bg-slate-900 px-3 py-2 text-[10px] font-bold text-white hover:bg-slate-800 transition">Download</a>
+          <button id="closeAttachmentModal" type="button"
+            class="h-9 w-9 rounded-lg border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition"
+            aria-label="Close attachment preview">
+            <svg class="mx-auto h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="attachmentPreviewBody" class="mt-4 max-h-[75vh] overflow-auto"></div>
+    </div>
+  </div>
+
+  <script>
+    function hideAttachmentPreviewModal() {
+      const previewModal = document.getElementById('attachmentModal');
+      const previewCard = document.getElementById('attachmentCard');
+      previewCard.classList.remove('scale-100', 'opacity-100');
+      previewCard.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => previewModal.classList.add('hidden'), 150);
+    }
+
+    document.getElementById('closeAttachmentModal').addEventListener('click', hideAttachmentPreviewModal);
+    document.getElementById('attachmentBackdrop').addEventListener('click', hideAttachmentPreviewModal);
+  </script>
+</body>
+
+</html>

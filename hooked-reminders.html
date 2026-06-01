@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Hooked Reminders – Hooked Pilipinas Admin</title>
+	<meta name="description" content="Hooked reminders and internal follow-ups for Hooked Pilipinas Laboratory Consultancy." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+				}
+			}
+		};
+	</script>
+	<style>
+		body { background-color: #f8fafc; }
+		::-webkit-scrollbar { width: 5px; height: 5px; }
+		::-webkit-scrollbar-track { background: transparent; }
+		::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+	</style>
+</head>
+<body class="min-h-screen text-slate-800 font-sans antialiased">
+
+	<div class="min-h-screen md:flex">
+
+		<!-- ===================== SIDEBAR ===================== -->
+		<aside class="flex w-full flex-col border-b border-blue-800/30 bg-gradient-to-b from-blue-900 to-blue-950 md:sticky md:top-0 md:h-screen md:w-[260px] md:flex-none md:border-b-0 md:border-r md:border-blue-800/30">
+			<div class="px-6 py-5 border-b border-blue-800/30 relative overflow-hidden">
+				<div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full"></div>
+				<div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-400/10 rounded-full"></div>
+				<div class="relative z-10">
+					<p class="text-sm font-extrabold tracking-[0.05em] text-white leading-none">HOOKED PILIPINAS</p>
+					<p class="text-[9px] uppercase tracking-[0.25em] text-blue-300 font-semibold mt-1">LABORATORY CONSULTANCY</p>
+				</div>
+			</div>
+			<nav class="flex-1 px-3 py-4 space-y-5 overflow-y-auto relative">
+				<div class="absolute top-20 right-0 w-40 h-40 bg-blue-600/5 rounded-full"></div>
+				<div class="relative z-10">
+					<p class="px-3 text-[10px] font-bold uppercase tracking-wider text-blue-300/70 mb-2">Workspace</p>
+					<div class="space-y-1">
+						<a href="client-details.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+							<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+							CLIENT RECORD
+						</a>
+						<a href="project-timeline.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+							<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M7 16v-3M11 16V8M15 16v-6M19 16v-9"/></svg>
+							PROJECT TIMELINE
+						</a>
+					</div>
+				</div>
+				<div class="relative z-10">
+					<p class="px-3 text-[10px] font-bold uppercase tracking-wider text-blue-300/70 mb-2">DOH & Compliance</p>
+					<div class="space-y-1">
+						<a href="hooked-reminders.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-semibold text-white bg-blue-500/30 border border-blue-400/30 transition-all duration-150 shadow-lg shadow-blue-900/20">
+							<svg class="w-4 h-4 shrink-0 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12M6 12h12M6 16h8"/><circle cx="5" cy="8" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="16" r="1"/></svg>
+							HOOKED REMINDERS
+						</a>
+						<a href="doh-reminders.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+							<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+							DOH REMINDERS
+						</a>
+					</div>
+				</div>
+			</nav>
+			<div class="p-3 border-t border-blue-800/30 bg-blue-900/30">
+				<div class="flex items-center justify-between gap-2 p-2 rounded-xl bg-blue-800/40 border border-blue-700/50 shadow-lg shadow-blue-900/30">
+					<div class="flex items-center gap-2 min-w-0">
+						<div id="userAvatar" class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 text-xs font-bold text-white uppercase shadow-lg">AD</div>
+						<div class="min-w-0 leading-tight">
+							<p id="userFullName" class="truncate text-xs font-bold text-white">Evelyn Admin</p>
+							<p id="userRole" class="truncate text-[10px] text-blue-300 font-medium">HOOKED ADMIN</p>
+						</div>
+					</div>
+					<button id="logoutBtn" type="button" class="h-7 w-7 rounded-lg flex items-center justify-center border border-blue-600/50 text-blue-300 hover:text-white hover:bg-blue-700/50 transition-colors shadow-md" title="Log Out">
+						<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+					</button>
+				</div>
+			</div>
+		</aside>
+
+		<!-- Inline script to prevent sidebar flash -->
+		<script>
+			(function() {
+				const storedUser = sessionStorage.getItem('hp_user');
+				if (storedUser) {
+					try {
+						const currentUser = JSON.parse(storedUser);
+						const userAvatar = document.getElementById('userAvatar');
+						const userFullName = document.getElementById('userFullName');
+						const userRoleEl = document.getElementById('userRole');
+						
+						if (currentUser.role === 'client' && userAvatar && userFullName && userRoleEl) {
+							userAvatar.textContent = (currentUser.clinicName || currentUser.username || 'CL').substring(0, 2).toUpperCase();
+							userAvatar.style.backgroundColor = '#2563eb';
+							userFullName.textContent = currentUser.clinicName || currentUser.username;
+							userRoleEl.textContent = 'HOOKED CLIENT';
+							
+							const clientRecordLink = document.querySelector('a[href="client-details.html"]');
+							if (clientRecordLink) clientRecordLink.style.display = 'none';
+						}
+					} catch (e) {}
+				}
+			})();
+		</script>
+
+		<!-- ===================== MAIN CONTENT ===================== -->
+		<main class="flex-1 px-4 py-6 sm:px-6 lg:px-8 overflow-y-auto">
+			<div class="mx-auto max-w-5xl space-y-6">
+
+				<header class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+					<p id="headerCategory" class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Admin Panel</p>
+					<h1 class="mt-1 text-2xl font-bold tracking-tight text-slate-900">Updates & Announcements</h1>
+					<p id="headerDescription" class="mt-1.5 text-xs leading-relaxed text-slate-500">Post updates, files, and announcements. Clients will view this in their portal.</p>
+				</header>
+
+				<!-- Create Post Card -->
+				<div id="createPostCard" class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+					<div class="flex items-start gap-3 mb-4">
+						<div class="h-10 w-10 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-white text-sm font-bold uppercase">AD</div>
+						<div class="flex-1 min-w-0">
+							<textarea id="postContent" class="w-full resize-none border-0 bg-transparent p-0 text-sm text-slate-900 placeholder:text-slate-400 focus:ring-0" rows="3" placeholder="What's on your mind? Share an update with the clients..."></textarea>
+						</div>
+					</div>
+					
+					<!-- File Upload Preview (hidden by default) -->
+					<div id="postFilePreview" class="hidden mb-4 ml-13 flex items-center justify-between bg-slate-50 px-3 py-2 rounded-lg border border-slate-200">
+						<div class="flex items-center gap-2 overflow-hidden">
+							<svg class="w-4 h-4 text-slate-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+							<span id="postFileName" class="text-xs font-semibold text-slate-700 truncate">filename.pdf</span>
+						</div>
+						<button type="button" onclick="removePostFile()" class="text-slate-400 hover:text-red-500 transition shrink-0 ml-3" title="Remove File">
+							<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+						</button>
+					</div>
+
+					<div class="flex items-center justify-between border-t border-slate-100 pt-3">
+						<label class="cursor-pointer inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-500 hover:bg-slate-50 hover:text-slate-700 transition">
+							<svg class="w-4 h-4 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+							Attach File
+							<input type="file" id="postFileInput" class="hidden" onchange="handlePostFileUpload(event)" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.zip" />
+						</label>
+						<div class="flex items-center gap-2">
+							<button type="button" id="cancelEditPostBtn" onclick="cancelEditPost()" class="hidden px-3 py-2 border border-slate-200 text-slate-500 hover:bg-slate-50 text-xs font-semibold rounded-lg transition">Cancel</button>
+							<button type="button" onclick="createPost()" id="createPostBtn" class="px-4 py-2 bg-slate-900 text-white text-xs font-bold rounded-lg hover:bg-slate-800 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">Post Update</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Posts Timeline -->
+				<div id="postsTimeline" class="space-y-6">
+					<!-- Posts will be injected here -->
+				</div>
+
+			</div>
+		</main>
+	</div>
+
+	<!-- Logout Modal -->
+	<div id="logoutModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+		<div id="logoutModalBackdrop" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"></div>
+		<div class="relative w-full max-w-[320px] bg-white rounded-2xl p-6 shadow-xl border border-slate-100 flex flex-col items-center text-center transform scale-95 opacity-0 transition-all duration-200" id="logoutModalCard">
+			<div class="h-12 w-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 mb-4 border border-slate-100">
+				<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+			</div>
+			<h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Confirm Logout</h3>
+			<p class="mt-2 text-xs text-slate-500 leading-relaxed">Are you sure you want to log out of your Hooked Pilipinas portal session?</p>
+			<div class="mt-5 flex w-full gap-3">
+				<button id="cancelLogout" type="button" class="flex-1 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 py-2 text-xs font-bold transition">Cancel</button>
+				<button id="confirmLogout" type="button" class="flex-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white py-2 text-xs font-bold transition">Logout</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const storedUser = sessionStorage.getItem('hp_user');
+		if (!storedUser) window.location.href = 'index.html';
+
+		let currentUser = { username: 'admin', role: 'admin' };
+		try { if (storedUser) currentUser = JSON.parse(storedUser); } catch (e) {}
+
+		const logoutModal = document.getElementById('logoutModal');
+		const logoutModalCard = document.getElementById('logoutModalCard');
+		const logoutModalBackdrop = document.getElementById('logoutModalBackdrop');
+
+		function showLogoutModal() {
+			logoutModal.classList.remove('hidden');
+			setTimeout(() => { logoutModalCard.classList.remove('scale-95','opacity-0'); logoutModalCard.classList.add('scale-100','opacity-100'); }, 20);
+		}
+		function hideLogoutModal() {
+			logoutModalCard.classList.remove('scale-100','opacity-100');
+			logoutModalCard.classList.add('scale-95','opacity-0');
+			setTimeout(() => logoutModal.classList.add('hidden'), 150);
+		}
+
+		document.getElementById('logoutBtn').addEventListener('click', showLogoutModal);
+		document.getElementById('cancelLogout').addEventListener('click', hideLogoutModal);
+		logoutModalBackdrop.addEventListener('click', hideLogoutModal);
+		document.getElementById('confirmLogout').addEventListener('click', () => { sessionStorage.removeItem('hp_user'); window.location.href = 'index.html'; });
+
+		// Blog Posting Logic
+		const POSTS_STORAGE_KEY = 'hp_blog_posts';
+		let pendingPostFile = null;
+
+		function loadPosts() {
+			const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
+			const posts = storedPosts ? JSON.parse(storedPosts) : [];
+			const timeline = document.getElementById('postsTimeline');
+			
+			if (posts.length === 0) {
+				timeline.innerHTML = `
+					<div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm text-center">
+						<div class="flex flex-col items-center gap-3">
+							<div class="h-12 w-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-300">
+								<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+							</div>
+							<p class="text-sm font-semibold text-slate-400">No updates posted yet.</p>
+							<p class="text-[11px] text-slate-300">Share your first update with the clients above!</p>
+						</div>
+					</div>
+				`;
+				return;
+			}
+			
+			posts.sort((a, b) => b.timestamp - a.timestamp);
+			
+			timeline.innerHTML = posts.map(post => {
+				const date = new Date(post.timestamp);
+				const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+				const timeStr = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+				
+				let fileHtml = '';
+				if (post.file) {
+					const isImage = post.file.type.startsWith('image/');
+					if (isImage) {
+						fileHtml = `
+							<div class="mt-4 rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+								<img src="${post.file.data}" alt="${post.file.name}" class="w-full h-auto max-h-96 object-contain" />
+							</div>
+						`;
+					} else {
+						fileHtml = `
+							<div class="mt-4 flex items-center gap-3 bg-slate-50 px-4 py-3 rounded-xl border border-slate-200">
+								<div class="h-10 w-10 shrink-0 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400">
+									<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+								</div>
+								<div class="flex-1 min-w-0">
+									<p class="text-xs font-bold text-slate-700 truncate" title="${post.file.name}">${post.file.name}</p>
+									<p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider mt-0.5">Attached Document</p>
+								</div>
+								<a href="${post.file.data}" download="${post.file.name}" class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 hover:text-slate-900 text-[10px] font-bold rounded-lg transition shrink-0 shadow-sm">Download</a>
+							</div>
+						`;
+					}
+				}
+
+				const adminActionsHtml = currentUser.role === 'client' ? '' : `
+					<div class="flex items-center gap-1.5">
+						<button onclick="startEditPost(${post.id})" class="text-slate-300 hover:text-slate-700 transition bg-slate-50 hover:bg-slate-100 p-1.5 rounded-lg" title="Edit Post">
+							<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
+						</button>
+						<button onclick="deletePost(${post.id})" class="text-slate-300 hover:text-red-500 transition bg-slate-50 hover:bg-red-50 p-1.5 rounded-lg" title="Delete Post">
+							<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4h8v2"/></svg>
+						</button>
+					</div>
+				`;
+
+				return `
+					<div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm transition-all hover:shadow-md">
+						<div class="flex justify-between items-start mb-4">
+							<div class="flex items-center gap-3">
+								<div class="h-10 w-10 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-white text-sm font-bold uppercase ring-4 ring-slate-50">AD</div>
+								<div>
+									<p class="text-sm font-bold text-slate-900">${post.authorName}</p>
+									<p class="text-[10px] font-medium text-slate-400 mt-0.5">${dateStr} at ${timeStr}</p>
+								</div>
+							</div>
+							${adminActionsHtml}
+						</div>
+						<p class="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">${escapeHtml(post.content)}</p>
+						${fileHtml}
+					</div>
+				`;
+			}).join('');
+		}
+
+		function escapeHtml(unsafe) {
+			if (!unsafe) return '';
+			return unsafe.toString()
+				.replace(/&/g, "&amp;")
+				.replace(/</g, "&lt;")
+				.replace(/>/g, "&gt;")
+				.replace(/"/g, "&quot;")
+				.replace(/'/g, "&#039;");
+		}
+
+		function handlePostFileUpload(event) {
+			const file = event.target.files[0];
+			if (!file) return;
+			if (file.size > 5 * 1024 * 1024) {
+				alert('File size exceeds 5MB limit for local storage simulation.');
+				return;
+			}
+			const reader = new FileReader();
+			reader.onload = (e) => {
+				pendingPostFile = {
+					name: file.name,
+					type: file.type,
+					data: e.target.result
+				};
+				document.getElementById('postFileName').textContent = file.name;
+				document.getElementById('postFilePreview').classList.remove('hidden');
+			};
+			reader.readAsDataURL(file);
+		}
+
+		function removePostFile() {
+			pendingPostFile = null;
+			document.getElementById('postFileInput').value = '';
+			document.getElementById('postFilePreview').classList.add('hidden');
+		}
+
+		let editingPostId = null;
+
+		function startEditPost(id) {
+			const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
+			const posts = storedPosts ? JSON.parse(storedPosts) : [];
+			const post = posts.find(p => p.id === id);
+			if (!post) return;
+
+			editingPostId = id;
+			document.getElementById('postContent').value = post.content;
+			
+			if (post.file) {
+				pendingPostFile = post.file;
+				document.getElementById('postFileName').textContent = post.file.name;
+				document.getElementById('postFilePreview').classList.remove('hidden');
+			} else {
+				removePostFile();
+			}
+
+			const btn = document.getElementById('createPostBtn');
+			btn.textContent = 'Update Post';
+			
+			const cancelBtn = document.getElementById('cancelEditPostBtn');
+			if (cancelBtn) cancelBtn.classList.remove('hidden');
+
+			document.getElementById('createPostCard').scrollIntoView({ behavior: 'smooth' });
+			document.getElementById('postContent').focus();
+		}
+
+		function cancelEditPost() {
+			editingPostId = null;
+			document.getElementById('postContent').value = '';
+			removePostFile();
+			
+			const btn = document.getElementById('createPostBtn');
+			btn.textContent = 'Post Update';
+			
+			const cancelBtn = document.getElementById('cancelEditPostBtn');
+			if (cancelBtn) cancelBtn.classList.add('hidden');
+		}
+
+		function createPost() {
+			const content = document.getElementById('postContent').value.trim();
+			
+			if (!content && !pendingPostFile) {
+				alert('Please write something or attach a file to post.');
+				return;
+			}
+			
+			const btn = document.getElementById('createPostBtn');
+			btn.disabled = true;
+			btn.textContent = editingPostId ? 'Updating...' : 'Posting...';
+
+			const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
+			const posts = storedPosts ? JSON.parse(storedPosts) : [];
+			
+			if (editingPostId) {
+				const postIdx = posts.findIndex(p => p.id === editingPostId);
+				if (postIdx !== -1) {
+					posts[postIdx].content = content;
+					posts[postIdx].file = pendingPostFile;
+					posts[postIdx].timestamp = Date.now();
+				}
+				editingPostId = null;
+			} else {
+				const newPost = {
+					id: Date.now(),
+					content: content,
+					authorName: 'HOOKED ADMIN',
+					timestamp: Date.now(),
+					file: pendingPostFile
+				};
+				posts.push(newPost);
+			}
+			
+			localStorage.setItem(POSTS_STORAGE_KEY, JSON.stringify(posts));
+			
+			document.getElementById('postContent').value = '';
+			removePostFile();
+			
+			btn.disabled = false;
+			btn.textContent = 'Post Update';
+
+			const cancelBtn = document.getElementById('cancelEditPostBtn');
+			if (cancelBtn) cancelBtn.classList.add('hidden');
+			
+			loadPosts();
+		}
+		
+		function deletePost(id) {
+			if (confirm('Are you sure you want to delete this post?')) {
+				const storedPosts = localStorage.getItem(POSTS_STORAGE_KEY);
+				let posts = storedPosts ? JSON.parse(storedPosts) : [];
+				posts = posts.filter(p => p.id !== id);
+				localStorage.setItem(POSTS_STORAGE_KEY, JSON.stringify(posts));
+				loadPosts();
+			}
+		}
+
+    // Hooked Reminders Notification Badge Logic for Client Sidebar
+    function updateHookedRemindersBadge() {
+      const storedUser = sessionStorage.getItem('hp_user');
+      if (!storedUser) return;
+      let currentUser = null;
+      try { currentUser = JSON.parse(storedUser); } catch(e) {}
+      if (!currentUser || currentUser.role !== 'client') return;
+
+      const postsKey = 'hp_blog_posts';
+      const lastViewedKey = 'hp_last_viewed_reminders_' + currentUser.username;
+      
+      const storedPosts = localStorage.getItem(postsKey);
+      const posts = storedPosts ? JSON.parse(storedPosts) : [];
+
+      const isRemindersPage = window.location.pathname.endsWith('hooked-reminders.html');
+      
+      if (isRemindersPage && posts.length > 0) {
+        const maxTimestamp = posts.reduce((max, p) => p.timestamp > max ? p.timestamp : max, 0);
+        localStorage.setItem(lastViewedKey, String(maxTimestamp));
+      }
+
+      const lastViewed = parseInt(localStorage.getItem(lastViewedKey) || '0', 10);
+      const unreadCount = posts.filter(p => p.timestamp > lastViewed).length;
+
+      const remindersLink = document.querySelector('a[href="hooked-reminders.html"]');
+      if (remindersLink) {
+        if (unreadCount > 0 && !isRemindersPage) {
+          remindersLink.classList.add('relative');
+          let badge = remindersLink.querySelector('.notifications-badge');
+          if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'notifications-badge absolute top-1 right-2 shrink-0 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-red-600 px-1 text-[8px] font-extrabold text-white border border-white';
+            badge.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.15)';
+            remindersLink.appendChild(badge);
+          }
+          badge.textContent = unreadCount;
+        } else {
+          const badge = remindersLink.querySelector('.notifications-badge');
+          if (badge) badge.remove();
+        }
+      }
+    }
+
+		document.addEventListener('DOMContentLoaded', () => {
+			// ─── Sidebar footer dynamic update ─────────────────
+			const userAvatar = document.getElementById('userAvatar');
+			const userFullName = document.getElementById('userFullName');
+			const userRoleEl = document.getElementById('userRole');
+
+			if (currentUser.role === 'client') {
+				userAvatar.textContent = (currentUser.clinicName || currentUser.username || 'CL').substring(0, 2).toUpperCase();
+				userAvatar.style.backgroundColor = '#2563eb'; // blue bg for clients
+				userFullName.textContent = currentUser.clinicName || currentUser.username;
+				userRoleEl.textContent = 'HOOKED CLIENT';
+
+				// Hide Client Record navigation link
+				const clientRecordLink = document.querySelector('a[href="client-details.html"]');
+				if (clientRecordLink) clientRecordLink.remove();
+
+				// Hide Create Post Card
+				const createPostCard = document.getElementById('createPostCard');
+				if (createPostCard) createPostCard.remove();
+
+				// Update headers
+				document.getElementById('headerCategory').textContent = 'Client Portal';
+				document.getElementById('headerDescription').textContent = 'View updates, files, and announcements posted by Hooked Pilipinas Admin.';
+			} else {
+				userAvatar.textContent = 'AD';
+				userAvatar.style.backgroundColor = '#0f172a';
+				userFullName.textContent = 'Evelyn Admin';
+				userRoleEl.textContent = 'HOOKED ADMIN';
+			}
+
+			loadPosts();
+			updateHookedRemindersBadge();
+		});
+
+		window.addEventListener('storage', (e) => {
+			if (e.key === POSTS_STORAGE_KEY) {
+				loadPosts();
+				updateHookedRemindersBadge();
+			}
+			if (e.key && e.key.startsWith('hp_last_viewed_reminders_')) {
+				updateHookedRemindersBadge();
+			}
+		});
+	</script>
+</body>
+</html>

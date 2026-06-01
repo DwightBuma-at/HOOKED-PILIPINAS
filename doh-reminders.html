@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>DOH Reminders – Hooked Pilipinas Admin</title>
+	<meta name="description" content="DOH HFSRB drug testing laboratory requirements and compliance reminders for Hooked Pilipinas Laboratory Consultancy." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } }
+		};
+	</script>
+	<style>
+		body { background-color: #f8fafc; }
+		::-webkit-scrollbar { width: 5px; height: 5px; }
+		::-webkit-scrollbar-track { background: transparent; }
+		::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+		.category-dot { display: inline-block; width: 8px; height: 8px; border-radius: 9999px; flex-shrink: 0; }
+		tr:hover td { background-color: #f8fafc; }
+	</style>
+</head>
+<body class="min-h-screen text-slate-800 font-sans antialiased">
+
+<div class="min-h-screen md:flex">
+
+	<!-- ===================== SIDEBAR ===================== -->
+	<aside class="flex w-full flex-col border-b border-blue-800/30 bg-gradient-to-b from-blue-900 to-blue-950 md:sticky md:top-0 md:h-screen md:w-[260px] md:flex-none md:border-b-0 md:border-r md:border-blue-800/30">
+		<div class="px-6 py-5 border-b border-blue-800/30 relative overflow-hidden">
+			<div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full"></div>
+			<div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-400/10 rounded-full"></div>
+			<div class="relative z-10">
+				<p class="text-sm font-extrabold tracking-[0.05em] text-white leading-none">HOOKED PILIPINAS</p>
+				<p class="text-[9px] uppercase tracking-[0.25em] text-blue-300 font-semibold mt-1">LABORATORY CONSULTANCY</p>
+			</div>
+		</div>
+		<nav class="flex-1 px-3 py-4 space-y-5 overflow-y-auto relative">
+			<div class="absolute top-20 right-0 w-40 h-40 bg-blue-600/5 rounded-full"></div>
+			<div class="relative z-10">
+				<p class="px-3 text-[10px] font-bold uppercase tracking-wider text-blue-300/70 mb-2">Workspace</p>
+				<div class="space-y-1">
+					<a href="client-details.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+						CLIENT RECORD
+					</a>
+					<a href="project-timeline.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M7 16v-3M11 16V8M15 16v-6M19 16v-9"/></svg>
+						PROJECT TIMELINE
+					</a>
+				</div>
+			</div>
+			<div class="relative z-10">
+				<p class="px-3 text-[10px] font-bold uppercase tracking-wider text-blue-300/70 mb-2">DOH & Compliance</p>
+				<div class="space-y-1">
+					<a href="hooked-reminders.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12M6 12h12M6 16h8"/><circle cx="5" cy="8" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="16" r="1"/></svg>
+						HOOKED REMINDERS
+					</a>
+					<a href="doh-reminders.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-semibold text-white bg-blue-500/30 border border-blue-400/30 transition-all duration-150 shadow-lg shadow-blue-900/20">
+						<svg class="w-4 h-4 shrink-0 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+						DOH REMINDERS
+					</a>
+				</div>
+			</div>
+		</nav>
+		<div class="p-3 border-t border-blue-800/30 bg-blue-900/30">
+			<div class="flex items-center justify-between gap-2 p-2 rounded-xl bg-blue-800/40 border border-blue-700/50 shadow-lg shadow-blue-900/30">
+				<div class="flex items-center gap-2 min-w-0">
+					<div id="userAvatar" class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 text-xs font-bold text-white uppercase shadow-lg">AD</div>
+					<div class="min-w-0 leading-tight">
+						<p id="userFullName" class="truncate text-xs font-bold text-white">Evelyn Admin</p>
+						<p id="userRole" class="truncate text-[10px] text-blue-300 font-medium">HOOKED ADMIN</p>
+					</div>
+				</div>
+				<button id="logoutBtn" type="button" class="h-7 w-7 rounded-lg flex items-center justify-center border border-blue-600/50 text-blue-300 hover:text-white hover:bg-blue-700/50 transition-colors shadow-md" title="Log Out">
+					<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+				</button>
+			</div>
+		</div>
+	</aside>
+
+	<!-- Inline script to prevent sidebar flash -->
+	<script>
+		(function() {
+			const storedUser = sessionStorage.getItem('hp_user');
+			if (storedUser) {
+				try {
+					const currentUser = JSON.parse(storedUser);
+					const userAvatar = document.getElementById('userAvatar');
+					const userFullName = document.getElementById('userFullName');
+					const userRoleEl = document.getElementById('userRole');
+					
+					if (currentUser.role === 'client' && userAvatar && userFullName && userRoleEl) {
+						userAvatar.textContent = (currentUser.clinicName || currentUser.username || 'CL').substring(0, 2).toUpperCase();
+						userAvatar.style.backgroundColor = '#2563eb';
+						userFullName.textContent = currentUser.clinicName || currentUser.username;
+						userRoleEl.textContent = 'HOOKED CLIENT';
+						
+						const clientRecordLink = document.querySelector('a[href="client-details.html"]');
+						if (clientRecordLink) clientRecordLink.style.display = 'none';
+					}
+				} catch (e) {}
+			}
+		})();
+	</script>
+
+	<!-- ===================== MAIN CONTENT ===================== -->
+	<main class="flex-1 px-4 py-6 sm:px-6 lg:px-8 overflow-y-auto">
+		<div class="mx-auto max-w-5xl space-y-5">
+
+			<!-- Header -->
+			<header class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+				<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+					<div>
+						<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">DOH & Compliance</p>
+						<h1 class="mt-1 text-2xl font-bold tracking-tight text-slate-900">DOH Reminders</h1>
+						<p class="mt-1.5 text-xs leading-relaxed text-slate-500 max-w-xl">
+							Official requirements from DOH HFSRB for Drug Testing Laboratory accreditation and licensing.
+							Based on <span class="font-semibold text-slate-700">Administrative Order 2010-0024</span>.
+						</p>
+					</div>
+					<a href="https://hfsrb.doh.gov.ph/drug-testing-laboratory/" target="_blank" rel="noopener noreferrer"
+						class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-700 transition shadow-sm shrink-0">
+						<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 0 1-2h1"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+						Visit DOH HFSRB Website
+					</a>
+				</div>
+			</header>
+
+			<!-- Category Legend -->
+			<div class="flex flex-wrap gap-2">
+				<span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-semibold text-slate-600 shadow-sm"><span class="category-dot bg-blue-400"></span>Documentary</span>
+				<span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-semibold text-slate-600 shadow-sm"><span class="category-dot bg-amber-400"></span>Personnel</span>
+				<span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-semibold text-slate-600 shadow-sm"><span class="category-dot bg-green-400"></span>Facility</span>
+				<span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-semibold text-slate-600 shadow-sm"><span class="category-dot bg-purple-400"></span>Equipment</span>
+				<span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-semibold text-slate-600 shadow-sm"><span class="category-dot bg-rose-400"></span>Quality Assurance</span>
+				<span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 rounded-full text-[10px] font-semibold text-slate-600 shadow-sm"><span class="category-dot bg-slate-400"></span>Chain of Custody</span>
+			</div>
+
+			<!-- Requirements Table -->
+			<div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+				<div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between gap-3">
+					<div>
+						<p class="text-sm font-bold text-slate-900">Drug Testing Laboratory — Requirements Checklist</p>
+						<p class="text-[10px] text-slate-400 mt-0.5">Source: hfsrb.doh.gov.ph/drug-testing-laboratory/</p>
+					</div>
+					<span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 text-[9px] font-bold border border-blue-100 uppercase tracking-wide">DOH HFSRB</span>
+				</div>
+				<div class="overflow-x-auto">
+					<table class="w-full text-xs text-left">
+						<thead>
+							<tr class="text-slate-400 uppercase text-[10px] border-b border-slate-100 bg-slate-50">
+								<th class="px-5 py-3 font-bold w-36">Category</th>
+								<th class="px-5 py-3 font-bold w-56">Requirement</th>
+								<th class="px-5 py-3 font-bold">Details / Notes</th>
+							</tr>
+						</thead>
+						<tbody class="divide-y divide-slate-100">
+
+							<!-- DOCUMENTARY -->
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-blue-700"><span class="category-dot bg-blue-400"></span>Documentary</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Notarized Application Form</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Duly accomplished and notarized application for License to Operate (LTO) as drug testing laboratory</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-blue-700"><span class="category-dot bg-blue-400"></span>Documentary</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">DTI / SEC / CDA Registration</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Proof of business registration — DTI for sole proprietor, SEC for corporation, CDA for cooperative</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-blue-700"><span class="category-dot bg-blue-400"></span>Documentary</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Mayor's / Business Permit</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Current and valid local government business permit for the operating address</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-blue-700"><span class="category-dot bg-blue-400"></span>Documentary</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Proof of Ownership / Lease</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Land title / deed of sale for owned premises, or notarized lease contract (minimum 2 years) for rented</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-blue-700"><span class="category-dot bg-blue-400"></span>Documentary</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Articles of Incorporation / Partnership</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">For corporations and partnerships — SEC-registered articles with latest GIS/AFS</td></tr>
+
+							<!-- PERSONNEL -->
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-amber-700"><span class="category-dot bg-amber-400"></span>Personnel</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Head of Laboratory</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Licensed physician or registered medical technologist; valid PRC ID + DOH-approved training certificate in drug testing</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-amber-700"><span class="category-dot bg-amber-400"></span>Personnel</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Medical Technologist / Analyst</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Licensed MedTech (RMT) with valid PRC ID; must hold a DOH-accredited drug testing training certificate</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-amber-700"><span class="category-dot bg-amber-400"></span>Personnel</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Authorized Specimen Collector (ASC)</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Completed DOH/DOLE-accredited training on urine specimen collection; valid ASC certificate</td></tr>
+
+							<!-- FACILITY -->
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-green-700"><span class="category-dot bg-green-400"></span>Facility</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Permit to Construct (PTC)</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">DOH-HFSRB issued PTC required before any construction, renovation, or modification of the laboratory space</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-green-700"><span class="category-dot bg-green-400"></span>Facility</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Minimum Floor Area</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Free-standing SDTL: minimum 40 sqm; Hospital-based: minimum 20 sqm. Must be dedicated solely to drug testing</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-green-700"><span class="category-dot bg-green-400"></span>Facility</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Functional Area Zoning</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Must have clearly defined areas: Waiting/Reception, Specimen Collection (private), Specimen Processing/Analysis, Records Room, Toilet with blued water</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-green-700"><span class="category-dot bg-green-400"></span>Facility</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Sanitation & Safety</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Proper ventilation, lighting, biohazard waste disposal system, eyewash station, fire extinguisher, and first aid kit</td></tr>
+
+							<!-- EQUIPMENT -->
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-purple-700"><span class="category-dot bg-purple-400"></span>Equipment</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Screening Equipment</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">DOH-approved immunoassay analyzer or rapid test kits; current calibration certificates required for all instruments</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-purple-700"><span class="category-dot bg-purple-400"></span>Equipment</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Confirmatory Equipment</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">GC-MS or LC-MS/MS required for Confirmatory DTL; calibration logs and preventive maintenance records</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-purple-700"><span class="category-dot bg-purple-400"></span>Equipment</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Supporting Lab Equipment</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Centrifuge, refrigerator (2–8°C), freezer (−20°C), pH meter, pipettes, biohazard containers, and PPE</td></tr>
+
+							<!-- QUALITY ASSURANCE -->
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-rose-700"><span class="category-dot bg-rose-400"></span>Quality Assurance</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">NRL Proficiency Testing</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Mandatory participation in the National Reference Laboratory (NRL) proficiency testing program with satisfactory rating</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-rose-700"><span class="category-dot bg-rose-400"></span>Quality Assurance</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Standard Operating Procedures</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Documented and approved SOPs for specimen collection, analysis, QC, reporting, and result confidentiality</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-rose-700"><span class="category-dot bg-rose-400"></span>Quality Assurance</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Quality Control Manual</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Written QC manual including internal controls (positive/negative), reagent lot tracking, and corrective action records</td></tr>
+
+							<!-- CHAIN OF CUSTODY -->
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-slate-600"><span class="category-dot bg-slate-400"></span>Chain of Custody</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">CoC Forms & Procedures</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Documented chain of custody from specimen collection to result — signed, dated, and traceable at every step</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-slate-600"><span class="category-dot bg-slate-400"></span>Chain of Custody</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Specimen Collection Privacy</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">Private, well-lit toilet with blue-dyed water; direct observation or monitored collection per DOH protocol</td></tr>
+							<tr><td class="px-5 py-3.5 align-top"><span class="inline-flex items-center gap-1.5 font-semibold text-slate-600"><span class="category-dot bg-slate-400"></span>Chain of Custody</span></td><td class="px-5 py-3.5 align-top font-semibold text-slate-800">Record Keeping</td><td class="px-5 py-3.5 align-top text-slate-500 leading-relaxed">All drug test records must be kept confidential and retained for at least 2 years per RA 9165 and DOH regulations</td></tr>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-3 flex-wrap">
+					<p class="text-[10px] text-slate-400">Reference: DOH HFSRB — Administrative Order No. 2010-0024 | Republic Act 9165</p>
+					<a href="https://hfsrb.doh.gov.ph/drug-testing-laboratory/" target="_blank" rel="noopener noreferrer"
+						class="text-[10px] font-bold text-blue-600 hover:underline inline-flex items-center gap-1">
+						<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 0 1-2h1"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+						View Official DOH HFSRB Page
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</main>
+</div>
+
+<!-- Logout Modal -->
+<div id="logoutModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+	<div id="logoutModalBackdrop" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"></div>
+	<div class="relative w-full max-w-[320px] bg-white rounded-2xl p-6 shadow-xl border border-slate-100 flex flex-col items-center text-center transform scale-95 opacity-0 transition-all duration-200" id="logoutModalCard">
+		<div class="h-12 w-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-600 mb-4 border border-slate-100">
+			<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+		</div>
+		<h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Confirm Logout</h3>
+		<p class="mt-2 text-xs text-slate-500 leading-relaxed">Are you sure you want to log out of your Hooked Pilipinas portal session?</p>
+		<div class="mt-5 flex w-full gap-3">
+			<button id="cancelLogout" type="button" class="flex-1 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 py-2 text-xs font-bold transition">Cancel</button>
+			<button id="confirmLogout" type="button" class="flex-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white py-2 text-xs font-bold transition">Logout</button>
+		</div>
+	</div>
+</div>
+
+<script>
+	const storedUser = sessionStorage.getItem('hp_user');
+	if (!storedUser) window.location.href = 'index.html';
+
+	let currentUser = { username: 'admin', role: 'admin' };
+	try { if (storedUser) currentUser = JSON.parse(storedUser); } catch (e) {}
+
+	const logoutModal = document.getElementById('logoutModal');
+	const logoutModalCard = document.getElementById('logoutModalCard');
+	const logoutModalBackdrop = document.getElementById('logoutModalBackdrop');
+
+	function showLogoutModal() {
+		logoutModal.classList.remove('hidden');
+		setTimeout(() => { logoutModalCard.classList.remove('scale-95','opacity-0'); logoutModalCard.classList.add('scale-100','opacity-100'); }, 20);
+	}
+	function hideLogoutModal() {
+		logoutModalCard.classList.remove('scale-100','opacity-100');
+		logoutModalCard.classList.add('scale-95','opacity-0');
+		setTimeout(() => logoutModal.classList.add('hidden'), 150);
+	}
+	document.getElementById('logoutBtn').addEventListener('click', showLogoutModal);
+	document.getElementById('cancelLogout').addEventListener('click', hideLogoutModal);
+	logoutModalBackdrop.addEventListener('click', hideLogoutModal);
+	document.getElementById('confirmLogout').addEventListener('click', () => { sessionStorage.removeItem('hp_user'); window.location.href = 'index.html'; });
+
+    // Hooked Reminders Notification Badge Logic for Client Sidebar
+    function updateHookedRemindersBadge() {
+      const storedUser = sessionStorage.getItem('hp_user');
+      if (!storedUser) return;
+      let currentUser = null;
+      try { currentUser = JSON.parse(storedUser); } catch(e) {}
+      if (!currentUser || currentUser.role !== 'client') return;
+
+      const postsKey = 'hp_blog_posts';
+      const lastViewedKey = 'hp_last_viewed_reminders_' + currentUser.username;
+      
+      const storedPosts = localStorage.getItem(postsKey);
+      const posts = storedPosts ? JSON.parse(storedPosts) : [];
+
+      const isRemindersPage = window.location.pathname.endsWith('hooked-reminders.html');
+      
+      if (isRemindersPage && posts.length > 0) {
+        const maxTimestamp = posts.reduce((max, p) => p.timestamp > max ? p.timestamp : max, 0);
+        localStorage.setItem(lastViewedKey, String(maxTimestamp));
+      }
+
+      const lastViewed = parseInt(localStorage.getItem(lastViewedKey) || '0', 10);
+      const unreadCount = posts.filter(p => p.timestamp > lastViewed).length;
+
+      const remindersLink = document.querySelector('a[href="hooked-reminders.html"]');
+      if (remindersLink) {
+        if (unreadCount > 0 && !isRemindersPage) {
+          remindersLink.classList.add('relative');
+          let badge = remindersLink.querySelector('.notifications-badge');
+          if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'notifications-badge absolute top-1 right-2 shrink-0 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-red-600 px-1 text-[8px] font-extrabold text-white border border-white';
+            badge.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.15)';
+            remindersLink.appendChild(badge);
+          }
+          badge.textContent = unreadCount;
+        } else {
+          const badge = remindersLink.querySelector('.notifications-badge');
+          if (badge) badge.remove();
+        }
+      }
+    }
+
+	document.addEventListener('DOMContentLoaded', () => {
+		// ─── Sidebar footer dynamic update ─────────────────
+		const userAvatar = document.getElementById('userAvatar');
+		const userFullName = document.getElementById('userFullName');
+		const userRoleEl = document.getElementById('userRole');
+
+		if (currentUser.role === 'client') {
+			userAvatar.textContent = (currentUser.clinicName || currentUser.username || 'CL').substring(0, 2).toUpperCase();
+			userAvatar.style.backgroundColor = '#2563eb'; // blue bg for clients
+			userFullName.textContent = currentUser.clinicName || currentUser.username;
+			userRoleEl.textContent = 'HOOKED CLIENT';
+
+			// Hide Client Record navigation link
+			const clientRecordLink = document.querySelector('a[href="client-details.html"]');
+			if (clientRecordLink) clientRecordLink.remove();
+		} else {
+			userAvatar.textContent = 'AD';
+			userAvatar.style.backgroundColor = '#0f172a';
+			userFullName.textContent = 'Evelyn Admin';
+			userRoleEl.textContent = 'HOOKED ADMIN';
+		}
+
+		updateHookedRemindersBadge();
+	});
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'hp_blog_posts' || (e.key && e.key.startsWith('hp_last_viewed_reminders_'))) {
+        updateHookedRemindersBadge();
+      }
+    });
+</script>
+</body>
+</html>

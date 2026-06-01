@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Login - Hooked Pilipinas Laboratory Consultancy</title>
+  <meta name="description" content="Hooked Pilipinas Laboratory Consultancy offers end-to-end turnkey support for DOH-accredited drug test screening laboratories, from feasibility to launch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #f8fafc;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+<body class="min-h-screen w-full flex items-center justify-center p-4 md:p-8 text-slate-800 font-sans">
+
+  <!-- Compact Split Card Container (Max-Width 780px) -->
+  <main class="w-full max-w-[780px] bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 grid md:grid-cols-12 min-h-[440px] my-6">
+    
+    <!-- Left Column: Elegant Logo & Brand Section (Blue Theme) -->
+    <section class="bg-gradient-to-b from-blue-900 to-blue-950 text-white p-8 md:p-10 md:col-span-5 flex flex-col justify-between relative border-r border-blue-800/30 overflow-hidden">
+      
+      <!-- Blue gradient circles for visual interest -->
+      <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full"></div>
+      <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-400/10 rounded-full"></div>
+      <div class="absolute top-1/2 left-1/2 w-40 h-40 bg-blue-600/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      
+      <!-- Brand Top -->
+      <div class="relative z-10">
+        <h1 class="font-sans text-[17px] font-extrabold tracking-[0.12em] text-white uppercase">
+          HOOKED PILIPINAS
+        </h1>
+        <p class="text-[9px] font-bold uppercase tracking-[0.25em] text-blue-300 mt-1.5">
+          Laboratory Consultancy
+        </p>
+      </div>
+
+      <!-- Brand Details (Bottom) -->
+      <div class="relative z-10 mt-12 md:mt-0">
+        <div class="h-0.5 w-6 bg-blue-400/50 mb-4"></div>
+        <p class="text-xs leading-relaxed text-blue-100/80 font-medium">
+          Technical turnkey advisors supporting DOH accredited laboratories from feasibility to operational launch.
+        </p>
+        <span class="inline-flex mt-4 items-center gap-1.5 rounded-full bg-blue-500/20 px-2.5 py-0.5 text-[8px] font-bold tracking-wider text-blue-300 border border-blue-400/30 uppercase">
+          Accreditation Support
+        </span>
+      </div>
+    </section>
+
+    <!-- Right Column: Compact Login Portal (Clean Professional White - 7/12 cols) -->
+    <section class="p-8 sm:p-10 md:col-span-7 flex flex-col justify-center bg-white">
+      <div class="w-full max-w-[340px] mx-auto">
+        
+        <div class="mb-5">
+          <h2 class="text-lg font-bold tracking-tight text-slate-900">Portal Login</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Enter credentials to access active project milestones.</p>
+        </div>
+
+        <form id="loginForm" class="space-y-4" novalidate>
+          <!-- Username Input -->
+          <div class="space-y-1.5">
+            <label for="username" class="block text-[10px] font-bold uppercase tracking-wider text-slate-500">Email or Username</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400">
+                <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              </span>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                placeholder="name@example.com"
+                autocomplete="username"
+                class="w-full rounded-lg border border-slate-200 bg-slate-50/50 pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-slate-800 focus:ring-1 focus:ring-slate-800 focus:outline-none transition-all duration-150"
+              />
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
+              <label for="password" class="block text-[10px] font-bold uppercase tracking-wider text-slate-500">Password</label>
+              <a href="#" class="text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors">Forgot?</a>
+            </div>
+            <div class="relative flex items-center">
+              <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+              </span>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Enter secure password"
+                autocomplete="current-password"
+                class="w-full rounded-lg border border-slate-200 bg-slate-50/50 pl-10 pr-14 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:border-slate-800 focus:ring-1 focus:ring-slate-800 focus:outline-none transition-all duration-150"
+              />
+              <button 
+                id="togglePassword" 
+                type="button" 
+                class="absolute right-3.5 text-xs font-bold text-slate-400 hover:text-slate-900 transition-colors py-1" 
+                aria-label="Show password" 
+                aria-pressed="false"
+              >
+                Show
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me checkbox -->
+          <div class="flex items-center pt-0.5">
+            <label class="flex items-center gap-2 text-xs text-slate-500 cursor-pointer select-none">
+              <input 
+                type="checkbox" 
+                class="h-3.5 w-3.5 rounded border-slate-300 bg-slate-50 text-slate-850 focus:ring-slate-800/20 cursor-pointer" 
+              />
+              <span>Remember session</span>
+            </label>
+          </div>
+
+          <!-- Action Button -->
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-slate-950 text-white py-2.5 font-bold text-xs transition-all duration-150 shadow-sm"
+          >
+            Sign In
+          </button>
+        </form>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Premium Corporate Error Alert Modal -->
+  <div id="errorModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <!-- Backdrop -->
+    <div id="modalBackdrop" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-200"></div>
+    
+    <!-- Modal Card -->
+    <div class="relative w-full max-w-[340px] bg-white rounded-2xl p-6 shadow-xl border border-slate-100 flex flex-col items-center text-center transform scale-95 opacity-0 transition-all duration-200" id="modalCard">
+      <!-- Error Icon -->
+      <div class="h-12 w-12 rounded-full bg-red-50 flex items-center justify-center text-red-600 mb-4 border border-red-100">
+        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+      </div>
+      
+      <!-- Title -->
+      <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider" id="modalTitle">Authentication Failed</h3>
+      
+      <!-- Message -->
+      <p class="mt-2 text-xs text-slate-500 leading-relaxed" id="modalMessage">
+        The credentials provided do not match our records. Please verify your details and try again.
+      </p>
+      
+      <!-- Action Button -->
+      <button 
+        id="closeModal" 
+        type="button" 
+        class="mt-5 w-full rounded-lg bg-slate-900 hover:bg-slate-800 text-white py-2 text-xs font-bold transition-all duration-150"
+      >
+        Dismiss
+      </button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    const USERS = [
+      { username: "admin", password: "admin123", role: "admin" },
+      { username: "client", password: "client2024", role: "client" }
+    ];
+
+    const loginForm = document.getElementById("loginForm");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const togglePasswordButton = document.getElementById("togglePassword");
+    
+    // Modal Selectors
+    const errorModal = document.getElementById("errorModal");
+    const modalCard = document.getElementById("modalCard");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMessage = document.getElementById("modalMessage");
+    const closeModal = document.getElementById("closeModal");
+    const modalBackdrop = document.getElementById("modalBackdrop");
+
+    function showModal(title, message) {
+      modalTitle.textContent = title;
+      modalMessage.textContent = message;
+      
+      errorModal.classList.remove("hidden");
+      // Force repaint to trigger animation transition
+      setTimeout(() => {
+        modalCard.classList.remove("scale-95", "opacity-0");
+        modalCard.classList.add("scale-100", "opacity-100");
+      }, 20);
+    }
+
+    function hideModal() {
+      modalCard.classList.remove("scale-100", "opacity-100");
+      modalCard.classList.add("scale-95", "opacity-0");
+      
+      setTimeout(() => {
+        errorModal.classList.add("hidden");
+      }, 150);
+    }
+
+    function updatePasswordToggle() {
+      const isVisible = passwordInput.type === "text";
+      togglePasswordButton.textContent = isVisible ? "Hide" : "Show";
+      togglePasswordButton.setAttribute("aria-label", isVisible ? "Hide password" : "Show password");
+      togglePasswordButton.setAttribute("aria-pressed", String(isVisible));
+    }
+
+    // Quick basic validation check for improper emails or empty states
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      // Check if input is empty
+      if (!username || !password) {
+        showModal("Incomplete Fields", "Please fill in both the username/email and password fields.");
+        return;
+      }
+
+      // Check if username looks like a malformed email when it contains an '@'
+      if (username.includes("@")) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(username)) {
+          showModal("Improper Email Format", "The email address entered is not in a valid format. Please check for typos.");
+          return;
+        }
+      }
+
+      // Check static users first
+      let matchedUser = USERS.find((user) => user.username === username && user.password === password);
+
+      if (!matchedUser) {
+        // Check dynamic clients from localStorage
+        try {
+          const storedClientsStr = localStorage.getItem("hp_clients");
+          if (storedClientsStr) {
+            const clientsList = JSON.parse(storedClientsStr);
+            const matchedClient = clientsList.find(c => c.loginEmail && c.loginEmail === username && c.password === password);
+            if (matchedClient) {
+              matchedUser = {
+                username: matchedClient.loginEmail,
+                role: "client",
+                clinicName: matchedClient.clinicName
+              };
+            }
+          }
+        } catch (e) {
+          console.error("Error checking client database:", e);
+        }
+      }
+
+      if (!matchedUser) {
+        showModal("Access Denied", "Incorrect username or password. Please verify your credentials and try again.");
+        return;
+      }
+
+      sessionStorage.setItem(
+        "hp_user",
+        JSON.stringify({ 
+          username: matchedUser.username, 
+          role: matchedUser.role,
+          clinicName: matchedUser.clinicName || "" 
+        })
+      );
+
+      if (matchedUser.role === "client") {
+        window.location.href = "project-timeline.html";
+      } else {
+        window.location.href = "client-details.html";
+      }
+    }
+
+    loginForm.addEventListener("submit", handleLogin);
+
+    // Modal Close Listeners
+    closeModal.addEventListener("click", hideModal);
+    modalBackdrop.addEventListener("click", hideModal);
+
+    togglePasswordButton.addEventListener("click", () => {
+      passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+      updatePasswordToggle();
+      passwordInput.focus();
+    });
+
+    // Initialize layout scripts
+    updatePasswordToggle();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
