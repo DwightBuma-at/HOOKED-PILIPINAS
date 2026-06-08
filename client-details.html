@@ -160,22 +160,42 @@
               </svg>
               DOH REMINDERS
             </a>
-					<a href="doh-olrs.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
-						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-						DOH OLRS
-					</a>
-					<a href="ndhrhis.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
-						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-						NDHRHIS
-					</a>
-					<a href="emb.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
-						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-						EMB
-					</a>
-					<a href="idtomis.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
-						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-						IDTOMIS
-					</a>
+            <a href="doh-olrs.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              DOH OLRS
+            </a>
+            <a href="ndhrhis.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              NDHRHIS
+            </a>
+            <a href="emb.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              EMB
+            </a>
+            <a href="idtomis.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              IDTOMIS
+            </a>
           </div>
         </div>
       </nav>
@@ -207,7 +227,7 @@
 
     <!-- Inline script to prevent sidebar flash -->
     <script>
-      (function() {
+      (function () {
         const storedUser = sessionStorage.getItem('hp_user');
         if (storedUser) {
           try {
@@ -215,17 +235,17 @@
             const userAvatar = document.getElementById('userAvatar');
             const userFullName = document.getElementById('userFullName');
             const userRoleEl = document.getElementById('userRole');
-            
+
             if (currentUser.role === 'client' && userAvatar && userFullName && userRoleEl) {
               userAvatar.textContent = (currentUser.clinicName || currentUser.username || 'CL').substring(0, 2).toUpperCase();
               userAvatar.style.backgroundColor = '#2563eb';
               userFullName.textContent = currentUser.clinicName || currentUser.username;
               userRoleEl.textContent = 'HOOKED CLIENT';
-              
+
               const clientRecordLink = document.querySelector('a[href="client-details.html"]');
               if (clientRecordLink) clientRecordLink.style.display = 'none';
             }
-          } catch (e) {}
+          } catch (e) { }
         }
       })();
     </script>
@@ -363,7 +383,8 @@
               <div class="flex items-center justify-between gap-3 px-5 py-4 border-b border-slate-100 bg-slate-50/20">
                 <div>
                   <p class="text-xs font-bold text-slate-700 uppercase tracking-wider">Client Account Credentials</p>
-                  <p class="text-[10px] text-slate-400 mt-0.5 font-medium">Use these credentials for client portal login authentication.</p>
+                  <p class="text-[10px] text-slate-400 mt-0.5 font-medium">Use these credentials for client portal login
+                    authentication.</p>
                 </div>
               </div>
 
@@ -372,10 +393,18 @@
                 <table class="w-full border-collapse text-xs">
                   <thead>
                     <tr class="bg-slate-50 border-b border-slate-200">
-                      <th class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">Client Name (Clinic)</th>
-                      <th class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">Email Address</th>
-                      <th class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">Password</th>
-                      <th class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap w-24">Actions</th>
+                      <th
+                        class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                        Client Name (Clinic)</th>
+                      <th
+                        class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                        Email Address</th>
+                      <th
+                        class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap">
+                        Password</th>
+                      <th
+                        class="text-left px-5 py-3 font-bold text-[10px] uppercase tracking-wider text-slate-500 whitespace-nowrap w-24">
+                        Actions</th>
                     </tr>
                   </thead>
                   <tbody id="credentialsTableBody">
@@ -383,10 +412,12 @@
                     <tr id="credentialsEmptyRow">
                       <td colspan="4" class="px-6 py-10 text-center">
                         <div class="flex flex-col items-center gap-2">
-                          <div class="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-300">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
-                              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                          <div
+                            class="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-300">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                              <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                             </svg>
                           </div>
                           <p class="text-xs font-semibold text-slate-400">No client credentials available</p>
@@ -496,7 +527,7 @@
                 for="totalContractPrice">Total Contract Price <span class="text-red-500">*</span></label>
               <input id="totalContractPrice" name="totalContractPrice" type="text" placeholder="e.g. ₱2,550,000"
                 required
-                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition" />
+                class="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition currency-input" />
             </div>
           </div>
         </div>
@@ -525,7 +556,7 @@
               <div>
                 <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Amount</label>
                 <input type="text" name="pt_amount_1" placeholder="₱600,000"
-                  class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition" />
+                  class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition currency-input" />
               </div>
               <div class="sm:col-span-2">
                 <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Payment Terms
@@ -579,7 +610,8 @@
             Save Client
           </button>
           <p id="credentialsHint" class="hidden w-full text-center text-[10px] text-amber-600 font-medium mt-1">
-            ⚡ After saving, you can set the client's login credentials in the <strong>Client Account Credentials</strong> table below.
+            ⚡ After saving, you can set the client's login credentials in the <strong>Client Account
+              Credentials</strong> table below.
           </p>
         </div>
 
@@ -588,7 +620,8 @@
   </div>
 
   <!-- ==================== SET CREDENTIALS MODAL ==================== -->
-  <div id="setCredentialsModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4" role="dialog" aria-modal="true">
+  <div id="setCredentialsModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4" role="dialog"
+    aria-modal="true">
     <!-- Backdrop -->
     <div id="setCredentialsBackdrop" class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"></div>
 
@@ -597,14 +630,16 @@
       class="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl border border-slate-100 transform scale-95 opacity-0 overflow-hidden">
 
       <!-- Header -->
-      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-900 to-slate-700">
+      <div
+        class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-gradient-to-r from-slate-900 to-slate-700">
         <div>
           <p class="text-[10px] font-bold uppercase tracking-wider text-slate-300">Admin · Credentials</p>
           <h2 class="text-sm font-bold text-white mt-0.5" id="setCredentialsTitle">Set Client Credentials</h2>
         </div>
         <button id="closeSetCredentialsBtn" type="button"
           class="h-8 w-8 rounded-lg flex items-center justify-center border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 6 6 18M6 6l12 12" />
           </svg>
         </button>
@@ -613,7 +648,9 @@
       <!-- Client Info Banner -->
       <div class="px-6 pt-4 pb-2">
         <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
-          <div class="h-9 w-9 rounded-lg bg-slate-900 flex items-center justify-center text-white text-xs font-bold shrink-0" id="credClientAvatar">--</div>
+          <div
+            class="h-9 w-9 rounded-lg bg-slate-900 flex items-center justify-center text-white text-xs font-bold shrink-0"
+            id="credClientAvatar">--</div>
           <div class="min-w-0">
             <p class="text-xs font-bold text-slate-900 truncate" id="credClientName">—</p>
             <p class="text-[10px] text-slate-400 mt-0.5" id="credClientCp">—</p>
@@ -649,7 +686,9 @@
         </div>
 
         <!-- Error message -->
-        <p id="credError" class="hidden text-[10px] font-semibold text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2"></p>
+        <p id="credError"
+          class="hidden text-[10px] font-semibold text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+        </p>
 
         <!-- Footer -->
         <div class="flex gap-3 pt-1 border-t border-slate-100">
@@ -659,10 +698,11 @@
           </button>
           <button type="submit"
             class="flex-1 rounded-lg bg-slate-900 hover:bg-slate-700 text-white py-2.5 text-xs font-bold transition shadow-sm flex items-center justify-center gap-1.5">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
-              <polyline points="17 21 17 13 7 13 7 21"/>
-              <polyline points="7 3 7 8 15 8"/>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+              <polyline points="17 21 17 13 7 13 7 21" />
+              <polyline points="7 3 7 8 15 8" />
             </svg>
             Save Credentials
           </button>
@@ -886,7 +926,7 @@
       const el = document.getElementById(`password-display-${idx}`);
       const btn = document.getElementById(`password-toggle-${idx}`);
       const isMasked = el.textContent === '••••••••';
-      
+
       if (isMasked) {
         el.textContent = password;
         el.classList.remove('select-none');
@@ -1039,7 +1079,7 @@
         <div>
           <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Amount</label>
           <input type="text" name="pt_amount_${paymentRowCount}" placeholder="₱600,000"
-            class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition" />
+            class="w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition currency-input" />
         </div>
         <div class="sm:col-span-2">
           <label class="block text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-1">Payment Terms Description</label>
@@ -1088,16 +1128,17 @@
     }
 
     function populateClientForm(client) {
-      document.getElementById('cpNumber').value = client.cpNumber || '';
-      document.getElementById('clinicName').value = client.clinicName || '';
-      document.getElementById('location').value = client.location || '';
-      document.getElementById('contactPerson').value = client.contactPerson || '';
-      document.getElementById('contactNumber').value = client.contactNumber || '';
-      document.getElementById('email').value = client.email || '';
-      document.getElementById('scope').value = client.scope || '';
-      document.getElementById('packageAvailed').value = client.packageAvailed || '';
-      document.getElementById('dateMOA').value = client.dateMOA || '';
-      document.getElementById('totalContractPrice').value = client.totalContractPrice || '';
+      const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.value = val || ''; };
+      setVal('cpNumber', client.cpNumber);
+      setVal('clinicName', client.clinicName);
+      setVal('location', client.location);
+      setVal('contactPerson', client.contactPerson);
+      setVal('contactNumber', client.contactNumber);
+      setVal('email', client.email);
+      setVal('scope', client.scope);
+      setVal('packageAvailed', client.packageAvailed);
+      setVal('dateMOA', client.dateMOA);
+      setVal('totalContractPrice', client.totalContractPrice);
 
       document.getElementById('paymentRowsContainer').innerHTML = '';
       const paymentTerms = client.paymentTerms || [];
@@ -1537,17 +1578,17 @@
       const storedUser = sessionStorage.getItem('hp_user');
       if (!storedUser) return;
       let currentUser = null;
-      try { currentUser = JSON.parse(storedUser); } catch(e) {}
+      try { currentUser = JSON.parse(storedUser); } catch (e) { }
       if (!currentUser || currentUser.role !== 'client') return;
 
       const postsKey = 'hp_blog_posts';
       const lastViewedKey = 'hp_last_viewed_reminders_' + currentUser.username;
-      
+
       const storedPosts = localStorage.getItem(postsKey);
       const posts = storedPosts ? JSON.parse(storedPosts) : [];
 
       const isRemindersPage = window.location.pathname.endsWith('hooked-reminders.html');
-      
+
       if (isRemindersPage && posts.length > 0) {
         const maxTimestamp = posts.reduce((max, p) => p.timestamp > max ? p.timestamp : max, 0);
         localStorage.setItem(lastViewedKey, String(maxTimestamp));
@@ -1583,6 +1624,25 @@
       }
       if (e.key === 'hp_blog_posts' || (e.key && e.key.startsWith('hp_last_viewed_reminders_'))) {
         updateHookedRemindersBadge();
+      }
+    });
+
+    document.addEventListener('input', function (e) {
+      if (e.target.classList.contains('currency-input')) {
+        let cursor = e.target.selectionStart;
+        let oldLength = e.target.value.length;
+
+        let val = e.target.value.replace(/,/g, '');
+        let parts = val.split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        let newVal = parts.join('.');
+
+        e.target.value = newVal;
+        let newLength = newVal.length;
+        let newCursor = cursor + (newLength - oldLength);
+        try {
+          e.target.setSelectionRange(newCursor, newCursor);
+        } catch (err) { }
       }
     });
   </script>
@@ -1627,8 +1687,8 @@
     document.getElementById('closeAttachmentModal').addEventListener('click', hideAttachmentPreviewModal);
     document.getElementById('attachmentBackdrop').addEventListener('click', hideAttachmentPreviewModal);
   </script>
-<script src="compliance-notes.js"></script>
-<script src="responsive-sidebar.js"></script>
+  <script src="compliance-notes.js"></script>
+  <script src="responsive-sidebar.js"></script>
 </body>
 
 </html>
