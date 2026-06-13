@@ -102,22 +102,42 @@
               </svg>
               DOH REMINDERS
             </a>
-					<a href="doh-olrs.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
-						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-						DOH OLRS
-					</a>
-					<a href="ndhrhis.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
-						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-						NDHRHIS
-					</a>
-					<a href="emb.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
-						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-						EMB
-					</a>
-					<a href="idtomis.html" class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
-						<svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-						IDTOMIS
-					</a>
+            <a href="doh-olrs.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              DOH OLRS
+            </a>
+            <a href="ndhrhis.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              NDHRHIS
+            </a>
+            <a href="emb.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              EMB
+            </a>
+            <a href="idtomis.html"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-xs font-medium text-blue-100/80 transition-all duration-150 hover:bg-blue-800/40 hover:text-white">
+              <svg class="w-4 h-4 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 8h8M8 12h8M8 16h5" />
+              </svg>
+              IDTOMIS
+            </a>
           </div>
         </div>
       </nav>
@@ -147,7 +167,7 @@
 
     <!-- Inline script to prevent sidebar flash -->
     <script>
-      (function() {
+      (function () {
         const storedUser = sessionStorage.getItem('hp_user');
         if (storedUser) {
           try {
@@ -155,17 +175,17 @@
             const userAvatar = document.getElementById('userAvatar');
             const userFullName = document.getElementById('userFullName');
             const userRoleEl = document.getElementById('userRole');
-            
+
             if (currentUser.role === 'client' && userAvatar && userFullName && userRoleEl) {
               userAvatar.textContent = (currentUser.clinicName || currentUser.username || 'CL').substring(0, 2).toUpperCase();
               userAvatar.style.backgroundColor = '#2563eb';
               userFullName.textContent = currentUser.clinicName || currentUser.username;
               userRoleEl.textContent = 'HOOKED CLIENT';
-              
+
               const clientRecordLink = document.querySelector('a[href="client-details.html"]');
               if (clientRecordLink) clientRecordLink.style.display = 'none';
             }
-          } catch (e) {}
+          } catch (e) { }
         }
       })();
     </script>
@@ -182,18 +202,26 @@
             <header class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
               <p class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Hooked Pilipinas System</p>
               <h1 class="text-2xl font-bold tracking-tight text-slate-900 mb-2">Project Timeline</h1>
-              <p class="text-sm font-semibold text-slate-700 mb-6">HOOKED PILIPINAS 8-PHASE FULL TURNKEY IMPLEMENTATION TIMELINE</p>
+              <p class="text-sm font-semibold text-slate-700 mb-6">HOOKED PILIPINAS 8-PHASE FULL TURNKEY IMPLEMENTATION
+                TIMELINE</p>
 
               <div id="clientTimelineIntro" class="hidden">
                 <div class="space-y-3 mb-6">
-                  <p class="text-sm text-slate-700"><span class="font-semibold">Duration:</span> 3-6 months (average for stand-alone Drug Testing Laboratory setup)</p>
-                  <p class="text-sm text-slate-700"><span class="font-semibold">Project Commencement:</span> Upon execution of MOA, 50% down payment, and SEC/BIR registration</p>
-                  <p class="text-sm text-slate-700"><span class="font-semibold">Trigger Point:</span> Hooked begins after issuance of Project Commencement Notice (PCN)</p>
+                  <p class="text-sm text-slate-700"><span class="font-semibold">Duration:</span> 3-6 months (average for
+                    stand-alone Drug Testing Laboratory setup)</p>
+                  <p class="text-sm text-slate-700"><span class="font-semibold">Project Commencement:</span> Upon
+                    execution of MOA, 50% down payment, and SEC/BIR registration</p>
+                  <p class="text-sm text-slate-700"><span class="font-semibold">Trigger Point:</span> Hooked begins
+                    after issuance of Project Commencement Notice (PCN)</p>
                 </div>
 
                 <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
                   <p class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Important Note</p>
-                  <p class="text-xs text-slate-700 leading-relaxed">All full deliverables (reports, financial models, tracking templates, SOPs, manuals, etc.) will only be provided upon official project commencement (signed MOA, 50% down payment, and issuance of CN). Prior to commencement, Hooked may extend complimentary high-level consultations or verbal insights at its discretion, but no formal documentation, financial models, or proprietary templates will be released.</p>
+                  <p class="text-xs text-slate-700 leading-relaxed">All full deliverables (reports, financial models,
+                    tracking templates, SOPs, manuals, etc.) will only be provided upon official project commencement
+                    (signed MOA, 50% down payment, and issuance of CN). Prior to commencement, Hooked may extend
+                    complimentary high-level consultations or verbal insights at its discretion, but no formal
+                    documentation, financial models, or proprietary templates will be released.</p>
                 </div>
               </div>
             </header>
@@ -362,7 +390,8 @@
                               class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#d1fae5]/50 cursor-pointer select-none">
                               <input type="checkbox" id="chk-p0-h1"
                                 class="phase0-checkbox h-4 w-4 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500" />
-                              <span class="text-slate-800"><span class="font-semibold text-slate-950">Ocular & Site Check
+                              <span class="text-slate-800"><span class="font-semibold text-slate-950">Ocular & Site
+                                  Check
                                   (verbal insights only):</span> basic catchment and competitor observation, site
                                 accessibility, utilities readiness.</span>
                             </label>
@@ -378,14 +407,16 @@
                               class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#d1fae5]/50 cursor-pointer select-none">
                               <input type="checkbox" id="chk-p0-h3"
                                 class="phase0-checkbox h-4 w-4 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500" />
-                              <span class="text-slate-800 font-semibold text-slate-950">Hooked Deliverables (Full Report –
+                              <span class="text-slate-800 font-semibold text-slate-950">Hooked Deliverables (Full Report
+                                –
                                 Released only after MOA & Down Payment)</span>
                             </label>
                             <label
                               class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#d1fae5]/50 cursor-pointer select-none">
                               <input type="checkbox" id="chk-p0-h4"
                                 class="phase0-checkbox h-4 w-4 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500" />
-                              <span class="text-slate-800"><span class="font-semibold text-slate-950">Detailed Feasibility
+                              <span class="text-slate-800"><span class="font-semibold text-slate-950">Detailed
+                                  Feasibility
                                   Report:</span> SWOT, market size projections, corporate/APE/PEME demand, breakeven
                                 analysis (tests/day vs. OPEX).</span>
                             </label>
@@ -393,7 +424,8 @@
                               class="flex items-center gap-3 px-4 py-2.5 hover:bg-[#d1fae5]/50 cursor-pointer select-none">
                               <input type="checkbox" id="chk-p0-h5"
                                 class="phase0-checkbox h-4 w-4 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500" />
-                              <span class="text-slate-800"><span class="font-semibold text-slate-950">Presentation:</span>
+                              <span class="text-slate-800"><span
+                                  class="font-semibold text-slate-950">Presentation:</span>
                                 comprehensive findings in client-friendly format.</span>
                             </label>
                           </div>
@@ -430,23 +462,31 @@
                           <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
                             <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> 2 Weeks
                               (overlaps with Phase 1-2)</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Establish a
-                              compliant, profitable pricing framework for walk-in, corporate, and government tie-ups.</p>
+                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Establish
+                              a
+                              compliant, profitable pricing framework for walk-in, corporate, and government tie-ups.
+                            </p>
 
                             <!-- Regulatory Pricing Compliance -->
                             <div class="mt-3 pt-3 border-t border-slate-200 text-slate-600 space-y-1.5">
                               <p class="font-bold text-slate-900">Regulatory Pricing Compliance (hard rule)</p>
-                              <p class="font-semibold text-slate-800">Screening fee caps (per DDB Board Regulation No. 9,
+                              <p class="font-semibold text-slate-800">Screening fee caps (per DDB Board Regulation No.
+                                9,
                                 s. 2007):</p>
                               <ul class="list-disc pl-5 space-y-0.5 text-slate-700">
                                 <li>Private DTLs: <span class="font-semibold text-slate-900">&le; ₱300/test</span></li>
-                                <li>Government DTLs: <span class="font-semibold text-slate-900">&le; ₱250/test</span></li>
+                                <li>Government DTLs: <span class="font-semibold text-slate-900">&le; ₱250/test</span>
+                                </li>
                               </ul>
-                              <p class="text-slate-700"><span class="font-semibold text-slate-800">Confirmatory fee</span>
-                                (per DDB Board Regulation No. 3, s. 2004): <span class="font-semibold text-slate-900">&le;
+                              <p class="text-slate-700"><span class="font-semibold text-slate-800">Confirmatory
+                                  fee</span>
+                                (per DDB Board Regulation No. 3, s. 2004): <span
+                                  class="font-semibold text-slate-900">&le;
                                   ₱1,000/sample</span></p>
-                              <p class="text-slate-700"><span class="font-semibold text-slate-800">IDTOMIS user fee</span>
-                                (per DOH AO 2009-0014): <span class="font-semibold text-slate-900">₱30/transaction</span>
+                              <p class="text-slate-700"><span class="font-semibold text-slate-800">IDTOMIS user
+                                  fee</span>
+                                (per DOH AO 2009-0014): <span
+                                  class="font-semibold text-slate-900">₱30/transaction</span>
                               </p>
                               <div
                                 class="flex items-center gap-1.5 text-amber-700 bg-amber-50 px-2.5 py-1.5 rounded border border-amber-200 mt-2 font-medium">
@@ -506,7 +546,8 @@
                               <input type="checkbox" id="chk-p0.5-h1"
                                 class="phase05-checkbox h-4 w-4 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500" />
                               <span class="text-slate-800">Benchmarking vs. nearby labs, recommended tiers for routine
-                                screening, confirmatory tie-ups, and corporate rates while staying under ₱300/caps.</span>
+                                screening, confirmatory tie-ups, and corporate rates while staying under
+                                ₱300/caps.</span>
                             </label>
 
                             <div
@@ -600,588 +641,609 @@
                           </div>
                         </div>
                         <div id="fileUploadContainer-0.5" class="mt-4 pt-3 border-t"></div>
+                      </div>
                     </div>
+
+                    <!-- PHASE 1 -->
+                    <div class="relative group">
+                      <div id="dotPhase-1"
+                        class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
+                      </div>
+                      <div id="cardPhase-1"
+                        class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
+                        <div class="flex justify-between items-start gap-3">
+                          <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 1
+                            </p>
+                            <h3 class="font-bold text-slate-900 mt-1 text-sm">Project Kickstart & Documentation</h3>
+                          </div>
+                          <div class="flex flex-col items-end gap-1.5 shrink-0">
+                            <span id="badgePhase-1"
+                              class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
+                            <button type="button" id="btnPhase-1"
+                              class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
+                          </div>
+                        </div>
+
+                        <!-- Collapsible checklist body Phase 1 -->
+                        <div id="checklist-body-1">
+                          <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
+                            <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Week 0–2
+                              </p>
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Secure
+                                baseline legal, technical, and regulatory documents to activate the project.</p>
+                            </div>
+
+                            <!-- Client Requirements Header -->
+                            <div
+                              class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Client Requirements</span>
+                                <button type="button" id="btn-checkall-p1-c" onclick="checkAllItems(1, 'client')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Client Requirements Items -->
+                            <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p1-client-reqs-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+
+                            <!-- Hooked Deliverables Header -->
+                            <div
+                              class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Hooked Deliverables</span>
+                                <button type="button" id="btn-checkall-p1-h" onclick="checkAllItems(1, 'deliverable')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Hooked Deliverables Items -->
+                            <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p1-deliverables-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+                          </div>
+                          <div id="fileUploadContainer-1" class="mt-4 pt-3 border-t border-slate-100/60 hidden"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PHASE 2 -->
+                    <div class="relative group">
+                      <div id="dotPhase-2"
+                        class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
+                      </div>
+                      <div id="cardPhase-2"
+                        class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
+                        <div class="flex justify-between items-start gap-3">
+                          <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 2
+                            </p>
+                            <h3 class="font-bold text-slate-900 mt-1 text-sm">Facility Design & Layout Planning</h3>
+                          </div>
+                          <div class="flex flex-col items-end gap-1.5 shrink-0">
+                            <span id="badgePhase-2"
+                              class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
+                            <button type="button" id="btnPhase-2"
+                              class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
+                          </div>
+                        </div>
+
+                        <!-- Collapsible checklist body Phase 2 -->
+                        <div id="checklist-body-2">
+                          <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
+                            <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Week 3–8
+                              </p>
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span>
+                                Finalize
+                                compliant lab layout & initiate LGU permitting.</p>
+                            </div>
+
+                            <!-- Client Requirements Header -->
+                            <div
+                              class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Client Requirements</span>
+                                <button type="button" id="btn-checkall-p2-c" onclick="checkAllItems(2, 'client')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Client Requirements Items -->
+                            <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p2-client-reqs-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+
+                            <!-- Hooked Deliverables Header -->
+                            <div
+                              class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Hooked Deliverables</span>
+                                <button type="button" id="btn-checkall-p2-h" onclick="checkAllItems(2, 'deliverable')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Hooked Deliverables Items -->
+                            <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p2-deliverables-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+                          </div>
+                          <div id="fileUploadContainer-2" class="mt-4 pt-3 border-t border-slate-100/60 hidden"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PHASE 3 -->
+                    <div class="relative group">
+                      <div id="dotPhase-3"
+                        class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
+                      </div>
+                      <div id="cardPhase-3"
+                        class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
+                        <div class="flex justify-between items-start gap-3">
+                          <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 3
+                            </p>
+                            <h3 class="font-bold text-slate-900 mt-1 text-sm">PTC Preparation, Site & Staffing Setup
+                            </h3>
+                          </div>
+                          <div class="flex flex-col items-end gap-1.5 shrink-0">
+                            <span id="badgePhase-3"
+                              class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
+                            <button type="button" id="btnPhase-3"
+                              class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
+                          </div>
+                        </div>
+
+                        <!-- Collapsible checklist body Phase 3 -->
+                        <div id="checklist-body-3">
+                          <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
+                            <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 2
+                              </p>
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> File
+                                DOH
+                                Permit to Construct (PTC) and finalize staffing.</p>
+                            </div>
+
+                            <!-- Client Requirements Header -->
+                            <div
+                              class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Client Requirements</span>
+                                <button type="button" id="btn-checkall-p3-c" onclick="checkAllItems(3, 'client')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Client Requirements Items -->
+                            <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p3-client-reqs-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+
+                            <!-- Hooked Deliverables Header -->
+                            <div
+                              class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Hooked Deliverables</span>
+                                <button type="button" id="btn-checkall-p3-h" onclick="checkAllItems(3, 'deliverable')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Hooked Deliverables Items -->
+                            <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p3-deliverables-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+                          </div>
+                          <div id="fileUploadContainer-3" class="mt-4 pt-3 border-t border-slate-100/60 hidden"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PHASE 4 -->
+                    <div class="relative group">
+                      <div id="dotPhase-4"
+                        class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
+                      </div>
+                      <div id="cardPhase-4"
+                        class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
+                        <div class="flex justify-between items-start gap-3">
+                          <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 4
+                            </p>
+                            <h3 class="font-bold text-slate-900 mt-1 text-sm">Construction, Mechanicals & Fit-out</h3>
+                          </div>
+                          <div class="flex flex-col items-end gap-1.5 shrink-0">
+                            <span id="badgePhase-4"
+                              class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
+                            <button type="button" id="btnPhase-4"
+                              class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
+                          </div>
+                        </div>
+
+                        <!-- Collapsible checklist body Phase 4 -->
+                        <div id="checklist-body-4">
+                          <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
+                            <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month
+                                3–5 (12–14 weeks)</p>
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Oversee
+                                and ensure the facility’s construction and fit-out are fully compliant with DOH AO
+                                2010-0024, the DTL Assessment Tool, and IDTOMIS readiness, with Hooked supervising
+                                contractor works and validating readiness for inspection.</p>
+                            </div>
+
+                            <!-- Client Requirements Header -->
+                            <div
+                              class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Client Requirements</span>
+                                <button type="button" id="btn-checkall-p4-c" onclick="checkAllItems(4, 'client')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Client Requirements Items -->
+                            <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p4-client-reqs-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+
+                            <!-- Hooked Deliverables Header -->
+                            <div
+                              class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Hooked Deliverables</span>
+                                <button type="button" id="btn-checkall-p4-h" onclick="checkAllItems(4, 'deliverable')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Hooked Deliverables Items -->
+                            <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p4-deliverables-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PHASE 5 -->
+                    <div class="relative group">
+                      <div id="dotPhase-5"
+                        class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
+                      </div>
+                      <div id="cardPhase-5"
+                        class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
+                        <div class="flex justify-between items-start gap-3 phase-header-trigger cursor-pointer">
+                          <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 5
+                            </p>
+                            <h3 class="font-bold text-slate-900 mt-1 text-sm">Equipment Delivery, SOPs & Dry-run</h3>
+                          </div>
+                          <div class="flex flex-col items-end gap-1.5 shrink-0">
+                            <span id="badgePhase-5"
+                              class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
+                            <button type="button" id="btnPhase-5"
+                              class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
+                          </div>
+                        </div>
+
+                        <!-- Collapsible checklist body Phase 5 -->
+                        <div id="checklist-body-5">
+                          <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
+                            <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Week
+                                20–22</p>
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span>
+                                Commission equipment, prepare SOPs, and simulate chain-of-custody and operations in
+                                compliance with DOH AO 2010-0024, the DTL Assessment Tool, and IDTOMIS integration.</p>
+                            </div>
+
+                            <!-- Client Requirements Header -->
+                            <div
+                              class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Client Requirements</span>
+                                <button type="button" id="btn-checkall-p5-c" onclick="checkAllItems(5, 'client')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Client Requirements Items -->
+                            <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p5-client-reqs-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+
+                            <!-- Hooked Deliverables Header -->
+                            <div
+                              class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Hooked Deliverables</span>
+                                <button type="button" id="btn-checkall-p5-h" onclick="checkAllItems(5, 'deliverable')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Hooked Deliverables Items -->
+                            <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p5-deliverables-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PHASE 6 -->
+                    <div class="relative group">
+                      <div id="dotPhase-6"
+                        class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
+                      </div>
+                      <div id="cardPhase-6"
+                        class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
+                        <div class="flex justify-between items-start gap-3 phase-header-trigger cursor-pointer">
+                          <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 6
+                            </p>
+                            <h3 class="font-bold text-slate-900 mt-1 text-sm">DOH LTO Application & Inspection</h3>
+                          </div>
+                          <div class="flex flex-col items-end gap-1.5 shrink-0">
+                            <span id="badgePhase-6"
+                              class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
+                            <button type="button" id="btnPhase-6"
+                              class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
+                          </div>
+                        </div>
+
+                        <!-- Collapsible checklist body Phase 6 -->
+                        <div id="checklist-body-6">
+                          <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
+                            <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 6
+                              </p>
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Secure
+                                DOH License to Operate (LTO) as a Drug Test Screening Laboratory, ensuring full
+                                compliance with DOH AO 2010-0024 and the DTL Assessment Tool.</p>
+                            </div>
+
+                            <!-- Client Requirements Header -->
+                            <div
+                              class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Client Requirements</span>
+                                <button type="button" id="btn-checkall-p6-c" onclick="checkAllItems(6, 'client')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Client Requirements Items -->
+                            <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p6-client-reqs-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+
+                            <!-- Hooked Deliverables Header -->
+                            <div
+                              class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Hooked Deliverables</span>
+                                <button type="button" id="btn-checkall-p6-h" onclick="checkAllItems(6, 'deliverable')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Hooked Deliverables Items -->
+                            <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p6-deliverables-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PHASE 7 -->
+                    <div class="relative group">
+                      <div id="dotPhase-7"
+                        class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
+                      </div>
+                      <div id="cardPhase-7"
+                        class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
+                        <div class="flex justify-between items-start gap-3 phase-header-trigger cursor-pointer">
+                          <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 7
+                            </p>
+                            <h3 class="font-bold text-slate-900 mt-1 text-sm">Soft Opening, DDB Reporting & Ops
+                              Finalization</h3>
+                          </div>
+                          <div class="flex flex-col items-end gap-1.5 shrink-0">
+                            <span id="badgePhase-7"
+                              class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
+                            <button type="button" id="btnPhase-7"
+                              class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
+                          </div>
+                        </div>
+
+                        <!-- Collapsible checklist body Phase 7 -->
+                        <div id="checklist-body-7">
+                          <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
+                            <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 7
+                              </p>
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Start
+                                operations and ensure full compliance with DOH & DDB reporting.</p>
+                            </div>
+
+                            <!-- Client Requirements Header -->
+                            <div
+                              class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Client Requirements</span>
+                                <button type="button" id="btn-checkall-p7-c" onclick="checkAllItems(7, 'client')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Client Requirements Items -->
+                            <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p7-client-reqs-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+
+                            <!-- Hooked Deliverables Header -->
+                            <div
+                              class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Hooked Deliverables</span>
+                                <button type="button" id="btn-checkall-p7-h" onclick="checkAllItems(7, 'deliverable')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Hooked Deliverables Items -->
+                            <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p7-deliverables-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PHASE 8 -->
+                    <div class="relative group">
+                      <div id="dotPhase-8"
+                        class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
+                      </div>
+                      <div id="cardPhase-8"
+                        class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
+                        <div class="flex justify-between items-start gap-3 phase-header-trigger cursor-pointer">
+                          <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 8
+                            </p>
+                            <h3 class="font-bold text-slate-900 mt-1 text-sm">Full Operations & Growth Monitoring</h3>
+                          </div>
+                          <div class="flex flex-col items-end gap-1.5 shrink-0">
+                            <span id="badgePhase-8"
+                              class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
+                            <button type="button" id="btnPhase-8"
+                              class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
+                          </div>
+                        </div>
+
+                        <!-- Collapsible checklist body Phase 8 -->
+                        <div id="checklist-body-8">
+                          <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
+                            <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 8+
+                              </p>
+                              <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Sustain
+                                compliance, optimize revenues, expand corporate/APE contracts.</p>
+                            </div>
+
+                            <!-- Client Requirements Header -->
+                            <div
+                              class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Client Requirements</span>
+                                <button type="button" id="btn-checkall-p8-c" onclick="checkAllItems(8, 'client')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Client Requirements Items -->
+                            <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p8-client-reqs-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+
+                            <!-- Hooked Deliverables Header -->
+                            <div
+                              class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
+                              <div class="flex items-center gap-3">
+                                <span>Hooked Deliverables</span>
+                                <button type="button" id="btn-checkall-p8-h" onclick="checkAllItems(8, 'deliverable')"
+                                  class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
+                                  All</button>
+                              </div>
+                              <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
+                                <span class="w-36 text-center">COMPILED ON</span>
+                                <span class="w-24 text-center"></span>
+                              </div>
+                            </div>
+                            <!-- Hooked Deliverables Items -->
+                            <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p8-deliverables-container">
+                              <!-- Injected via JavaScript dynamically -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
-
-                  <!-- PHASE 1 -->
-                  <div class="relative group">
-                    <div id="dotPhase-1"
-                      class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
-                    </div>
-                    <div id="cardPhase-1"
-                      class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
-                      <div class="flex justify-between items-start gap-3">
-                        <div>
-                          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 1
-                          </p>
-                          <h3 class="font-bold text-slate-900 mt-1 text-sm">Project Kickstart & Documentation</h3>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5 shrink-0">
-                          <span id="badgePhase-1"
-                            class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
-                          <button type="button" id="btnPhase-1"
-                            class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
-                        </div>
-                      </div>
-
-                      <!-- Collapsible checklist body Phase 1 -->
-                      <div id="checklist-body-1">
-                        <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
-                          <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Week 0–2</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Secure
-                              baseline legal, technical, and regulatory documents to activate the project.</p>
-                          </div>
-
-                          <!-- Client Requirements Header -->
-                          <div
-                            class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Client Requirements</span>
-                              <button type="button" id="btn-checkall-p1-c" onclick="checkAllItems(1, 'client')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Client Requirements Items -->
-                          <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p1-client-reqs-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-
-                          <!-- Hooked Deliverables Header -->
-                          <div
-                            class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Hooked Deliverables</span>
-                              <button type="button" id="btn-checkall-p1-h" onclick="checkAllItems(1, 'deliverable')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Hooked Deliverables Items -->
-                          <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p1-deliverables-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-                        </div>
-                        <div id="fileUploadContainer-1" class="mt-4 pt-3 border-t border-slate-100/60 hidden"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- PHASE 2 -->
-                  <div class="relative group">
-                    <div id="dotPhase-2"
-                      class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
-                    </div>
-                    <div id="cardPhase-2"
-                      class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
-                      <div class="flex justify-between items-start gap-3">
-                        <div>
-                          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 2
-                          </p>
-                          <h3 class="font-bold text-slate-900 mt-1 text-sm">Facility Design & Layout Planning</h3>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5 shrink-0">
-                          <span id="badgePhase-2"
-                            class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
-                          <button type="button" id="btnPhase-2"
-                            class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
-                        </div>
-                      </div>
-
-                      <!-- Collapsible checklist body Phase 2 -->
-                      <div id="checklist-body-2">
-                        <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
-                          <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Week 3–8</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Finalize
-                              compliant lab layout & initiate LGU permitting.</p>
-                          </div>
-
-                          <!-- Client Requirements Header -->
-                          <div
-                            class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Client Requirements</span>
-                              <button type="button" id="btn-checkall-p2-c" onclick="checkAllItems(2, 'client')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Client Requirements Items -->
-                          <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p2-client-reqs-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-
-                          <!-- Hooked Deliverables Header -->
-                          <div
-                            class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Hooked Deliverables</span>
-                              <button type="button" id="btn-checkall-p2-h" onclick="checkAllItems(2, 'deliverable')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Hooked Deliverables Items -->
-                          <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p2-deliverables-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-                        </div>
-                        <div id="fileUploadContainer-2" class="mt-4 pt-3 border-t border-slate-100/60 hidden"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- PHASE 3 -->
-                  <div class="relative group">
-                    <div id="dotPhase-3"
-                      class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
-                    </div>
-                    <div id="cardPhase-3"
-                      class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
-                      <div class="flex justify-between items-start gap-3">
-                        <div>
-                          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 3
-                          </p>
-                          <h3 class="font-bold text-slate-900 mt-1 text-sm">PTC Preparation, Site & Staffing Setup</h3>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5 shrink-0">
-                          <span id="badgePhase-3"
-                            class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
-                          <button type="button" id="btnPhase-3"
-                            class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
-                        </div>
-                      </div>
-
-                      <!-- Collapsible checklist body Phase 3 -->
-                      <div id="checklist-body-3">
-                        <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
-                          <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 2</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> File DOH
-                              Permit to Construct (PTC) and finalize staffing.</p>
-                          </div>
-
-                          <!-- Client Requirements Header -->
-                          <div
-                            class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Client Requirements</span>
-                              <button type="button" id="btn-checkall-p3-c" onclick="checkAllItems(3, 'client')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Client Requirements Items -->
-                          <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p3-client-reqs-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-
-                          <!-- Hooked Deliverables Header -->
-                          <div
-                            class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Hooked Deliverables</span>
-                              <button type="button" id="btn-checkall-p3-h" onclick="checkAllItems(3, 'deliverable')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Hooked Deliverables Items -->
-                          <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p3-deliverables-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-                        </div>
-                        <div id="fileUploadContainer-3" class="mt-4 pt-3 border-t border-slate-100/60 hidden"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- PHASE 4 -->
-                  <div class="relative group">
-                    <div id="dotPhase-4"
-                      class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
-                    </div>
-                    <div id="cardPhase-4"
-                      class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
-                      <div class="flex justify-between items-start gap-3">
-                        <div>
-                          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 4
-                          </p>
-                          <h3 class="font-bold text-slate-900 mt-1 text-sm">Construction, Mechanicals & Fit-out</h3>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5 shrink-0">
-                          <span id="badgePhase-4"
-                            class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
-                          <button type="button" id="btnPhase-4"
-                            class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
-                        </div>
-                      </div>
-
-                      <!-- Collapsible checklist body Phase 4 -->
-                      <div id="checklist-body-4">
-                        <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
-                          <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 3–5 (12–14 weeks)</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Oversee and ensure the facility’s construction and fit-out are fully compliant with DOH AO 2010-0024, the DTL Assessment Tool, and IDTOMIS readiness, with Hooked supervising contractor works and validating readiness for inspection.</p>
-                          </div>
-
-                          <!-- Client Requirements Header -->
-                          <div
-                            class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Client Requirements</span>
-                              <button type="button" id="btn-checkall-p4-c" onclick="checkAllItems(4, 'client')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Client Requirements Items -->
-                          <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p4-client-reqs-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-
-                          <!-- Hooked Deliverables Header -->
-                          <div
-                            class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Hooked Deliverables</span>
-                              <button type="button" id="btn-checkall-p4-h" onclick="checkAllItems(4, 'deliverable')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Hooked Deliverables Items -->
-                          <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p4-deliverables-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- PHASE 5 -->
-                  <div class="relative group">
-                    <div id="dotPhase-5"
-                      class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
-                    </div>
-                    <div id="cardPhase-5"
-                      class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
-                      <div class="flex justify-between items-start gap-3 phase-header-trigger cursor-pointer">
-                        <div>
-                          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 5
-                          </p>
-                          <h3 class="font-bold text-slate-900 mt-1 text-sm">Equipment Delivery, SOPs & Dry-run</h3>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5 shrink-0">
-                          <span id="badgePhase-5"
-                            class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
-                          <button type="button" id="btnPhase-5"
-                            class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
-                        </div>
-                      </div>
-
-                      <!-- Collapsible checklist body Phase 5 -->
-                      <div id="checklist-body-5">
-                        <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
-                          <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Week 20–22</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Commission equipment, prepare SOPs, and simulate chain-of-custody and operations in compliance with DOH AO 2010-0024, the DTL Assessment Tool, and IDTOMIS integration.</p>
-                          </div>
-
-                          <!-- Client Requirements Header -->
-                          <div
-                            class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Client Requirements</span>
-                              <button type="button" id="btn-checkall-p5-c" onclick="checkAllItems(5, 'client')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Client Requirements Items -->
-                          <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p5-client-reqs-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-
-                          <!-- Hooked Deliverables Header -->
-                          <div
-                            class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Hooked Deliverables</span>
-                              <button type="button" id="btn-checkall-p5-h" onclick="checkAllItems(5, 'deliverable')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Hooked Deliverables Items -->
-                          <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p5-deliverables-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- PHASE 6 -->
-                  <div class="relative group">
-                    <div id="dotPhase-6"
-                      class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
-                    </div>
-                    <div id="cardPhase-6"
-                      class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
-                      <div class="flex justify-between items-start gap-3 phase-header-trigger cursor-pointer">
-                        <div>
-                          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 6
-                          </p>
-                          <h3 class="font-bold text-slate-900 mt-1 text-sm">DOH LTO Application & Inspection</h3>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5 shrink-0">
-                          <span id="badgePhase-6"
-                            class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
-                          <button type="button" id="btnPhase-6"
-                            class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
-                        </div>
-                      </div>
-
-                      <!-- Collapsible checklist body Phase 6 -->
-                      <div id="checklist-body-6">
-                        <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
-                          <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 6</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Secure DOH License to Operate (LTO) as a Drug Test Screening Laboratory, ensuring full compliance with DOH AO 2010-0024 and the DTL Assessment Tool.</p>
-                          </div>
-
-                          <!-- Client Requirements Header -->
-                          <div
-                            class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Client Requirements</span>
-                              <button type="button" id="btn-checkall-p6-c" onclick="checkAllItems(6, 'client')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Client Requirements Items -->
-                          <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p6-client-reqs-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-
-                          <!-- Hooked Deliverables Header -->
-                          <div
-                            class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Hooked Deliverables</span>
-                              <button type="button" id="btn-checkall-p6-h" onclick="checkAllItems(6, 'deliverable')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Hooked Deliverables Items -->
-                          <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p6-deliverables-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- PHASE 7 -->
-                  <div class="relative group">
-                    <div id="dotPhase-7"
-                      class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
-                    </div>
-                    <div id="cardPhase-7"
-                      class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
-                      <div class="flex justify-between items-start gap-3 phase-header-trigger cursor-pointer">
-                        <div>
-                          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 7
-                          </p>
-                          <h3 class="font-bold text-slate-900 mt-1 text-sm">Soft Opening, DDB Reporting & Ops Finalization</h3>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5 shrink-0">
-                          <span id="badgePhase-7"
-                            class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
-                          <button type="button" id="btnPhase-7"
-                            class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
-                        </div>
-                      </div>
-
-                      <!-- Collapsible checklist body Phase 7 -->
-                      <div id="checklist-body-7">
-                        <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
-                          <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 7</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Start operations and ensure full compliance with DOH & DDB reporting.</p>
-                          </div>
-
-                          <!-- Client Requirements Header -->
-                          <div
-                            class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Client Requirements</span>
-                              <button type="button" id="btn-checkall-p7-c" onclick="checkAllItems(7, 'client')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Client Requirements Items -->
-                          <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p7-client-reqs-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-
-                          <!-- Hooked Deliverables Header -->
-                          <div
-                            class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Hooked Deliverables</span>
-                              <button type="button" id="btn-checkall-p7-h" onclick="checkAllItems(7, 'deliverable')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Hooked Deliverables Items -->
-                          <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p7-deliverables-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- PHASE 8 -->
-                  <div class="relative group">
-                    <div id="dotPhase-8"
-                      class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-200 border-2 border-white transition-transform group-hover:scale-110">
-                    </div>
-                    <div id="cardPhase-8"
-                      class="bg-white p-5 rounded-xl border border-slate-100 transition-colors hover:border-slate-300 hover:shadow-sm">
-                      <div class="flex justify-between items-start gap-3 phase-header-trigger cursor-pointer">
-                        <div>
-                          <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider title-phase">Phase 8
-                          </p>
-                          <h3 class="font-bold text-slate-900 mt-1 text-sm">Full Operations & Growth Monitoring</h3>
-                        </div>
-                        <div class="flex flex-col items-end gap-1.5 shrink-0">
-                          <span id="badgePhase-8"
-                            class="px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100">Pending</span>
-                          <button type="button" id="btnPhase-8"
-                            class="px-3 py-1 bg-slate-900 text-white text-[9px] font-bold rounded-lg hover:bg-slate-700 transition shadow-sm">Comply</button>
-                        </div>
-                      </div>
-                      
-                      <!-- Collapsible checklist body Phase 8 -->
-                      <div id="checklist-body-8">
-                        <div class="mt-4 text-xs overflow-hidden border border-slate-200 rounded-lg">
-                          <div class="bg-slate-50 p-4 border-b border-slate-200 space-y-2">
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Timeline:</span> Month 8+</p>
-                            <p class="text-slate-700"><span class="font-bold text-slate-900">Objective:</span> Sustain compliance, optimize revenues, expand corporate/APE contracts.</p>
-                          </div>
-
-                          <!-- Client Requirements Header -->
-                          <div
-                            class="bg-[#fef08a] px-4 py-2 font-bold text-slate-900 border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Client Requirements</span>
-                              <button type="button" id="btn-checkall-p8-c" onclick="checkAllItems(8, 'client')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-yellow-100 hover:bg-yellow-250 border border-amber-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Client Requirements Items -->
-                          <div class="divide-y divide-[#fef08a] bg-[#fefcbf]/30" id="p8-client-reqs-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-
-                          <!-- Hooked Deliverables Header -->
-                          <div
-                            class="bg-[#a7f3d0] px-4 py-2 font-bold text-slate-900 border-t border-b border-slate-200 flex justify-between items-center">
-                            <div class="flex items-center gap-3">
-                              <span>Hooked Deliverables</span>
-                              <button type="button" id="btn-checkall-p8-h" onclick="checkAllItems(8, 'deliverable')"
-                                class="checkall-btn hidden px-2.5 py-0.5 bg-emerald-100 hover:bg-emerald-250 border border-emerald-300 text-[10px] font-bold text-slate-800 rounded transition hover:scale-105 active:scale-95 shadow-sm">Check
-                                All</button>
-                            </div>
-                            <div class="flex items-center gap-12 text-[10px] font-bold text-slate-700 shrink-0">
-                              <span class="w-36 text-center">COMPILED ON</span>
-                              <span class="w-24 text-center"></span>
-                            </div>
-                          </div>
-                          <!-- Hooked Deliverables Items -->
-                          <div class="divide-y divide-[#a7f3d0] bg-[#ecfdf5]/40" id="p8-deliverables-container">
-                            <!-- Injected via JavaScript dynamically -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
-              </div>
-            </div> <!-- /activeProjectContainer -->
+              </div> <!-- /activeProjectContainer -->
 
-          </div>
+            </div>
         </main>
 
       </div>
@@ -1873,7 +1935,7 @@
       { id: 'p6-h5', text: 'Approved & signed floor plan (final version).', category: 'deliverable', subcat: '1. LTO Dossier Compilation', hasUpload: false },
       { id: 'p6-h6', text: 'SEC/DTI/BIR registration docs (consistent with lab name).', category: 'deliverable', subcat: '1. LTO Dossier Compilation', hasUpload: false },
       { id: 'p6-h7', text: 'MOA with Confirmatory Drug Testing Laboratory (with DDB accreditation number).', category: 'deliverable', subcat: '1. LTO Dossier Compilation', hasUpload: false },
-      
+
       { id: 'p6-h8', text: 'Appointment/contract/MOAs of HOL, Analyst, RMT, ASC staff.', category: 'deliverable', subcat: 'Staffing documents', hasUpload: false },
       { id: 'p6-h9', text: 'Updated PRC IDs, PTRs, training certificates.', category: 'deliverable', subcat: 'Staffing documents', hasUpload: false },
       { id: 'p6-h10', text: 'Equipment list with calibration certificates & CPRs.', category: 'deliverable', subcat: 'Staffing documents', hasUpload: false },
@@ -1883,7 +1945,7 @@
       { id: 'p6-h14', text: 'Photo documentation (frontage, waiting area, collection toilet, custody desk, analyst room, CCTV views, waste storage).', category: 'deliverable', subcat: 'Staffing documents', hasUpload: false },
       { id: 'p6-h15', text: 'MOA with Waste Hauler (DENR-accredited).', category: 'deliverable', subcat: 'Staffing documents', hasUpload: false },
       { id: 'p6-h16', text: 'MOAs with pest control, referral hospital/clinic, security (if applicable).', category: 'deliverable', subcat: 'Staffing documents', hasUpload: false },
-      
+
       { id: 'p6-h17', text: 'Payment of ₱5,000 application fee.', category: 'deliverable', subcat: '2. Application Processing', hasUpload: false },
       { id: 'p6-h18', text: 'Filing of LTO application at DOH (CHD/central depending on jurisdiction).', category: 'deliverable', subcat: '2. Application Processing', hasUpload: false },
       { id: 'p6-h19', text: 'Coordination with DOH licensing team & inspector scheduling.', category: 'deliverable', subcat: '2. Application Processing', hasUpload: false },
@@ -1915,11 +1977,11 @@
       { id: 'p7-h13', text: 'Confirmatory tie-up monitoring', category: 'deliverable', subcat: 'DDB compliance setup', hasUpload: false },
       { id: 'p7-h14', text: 'Support until full approval', category: 'deliverable', subcat: 'DDB compliance setup', hasUpload: false }
     ];
-    
+
 
     const P8_ITEMS = [
       { id: 'p8-c1', text: 'Quarterly review meetings with Hooked - Sharing of monthly financial reports', category: 'client', subcat: '', hasUpload: true },
-      
+
       { id: 'p8-h1', text: 'Quality monitoring: IQC/EQAP participation, logbook checks, CCTV review.', category: 'deliverable', subcat: '', hasUpload: true },
       { id: 'p8-h2', text: 'Staff refresher training & SOP updates.', category: 'deliverable', subcat: '', hasUpload: true },
       { id: 'p8-h3', text: 'Marketing support: corporate tie-ups (schools, LGUs, gov’t agencies), APE packages.', category: 'deliverable', subcat: '', hasUpload: true },
@@ -2524,8 +2586,15 @@
             };
             gdriveContainer.appendChild(viewBtn);
 
-            // If not verified and user is client, and overall phase is not verified/locked, allow replace/remove
-            if (!isVerified && currentUser.role === 'client' && !isPhase2Verified && !isPhase2Locked) {
+            let canUploadOrRemove = false;
+            if (!isVerified && !isPhase2Verified && !isPhase2Locked) {
+              if (item.category === 'client') {
+                if (currentUser.role === 'client') canUploadOrRemove = true;
+              } else {
+                if (currentUser.role !== 'client') canUploadOrRemove = true;
+              }
+            }
+            if (canUploadOrRemove) {
               let removeBtn = document.createElement('button');
               removeBtn.type = 'button';
               removeBtn.className = 'text-slate-400 hover:text-red-500 transition shrink-0';
@@ -2540,13 +2609,21 @@
             }
           } else {
             // No file yet
-            if (isVerified || currentUser.role !== 'client' || isPhase2Verified || isPhase2Locked) {
+            let canUpload = false;
+            if (!isVerified && !isPhase2Verified && !isPhase2Locked) {
+              if (item.category === 'client') {
+                if (currentUser.role === 'client') canUpload = true;
+              } else {
+                if (currentUser.role !== 'client') canUpload = true;
+              }
+            }
+            if (!canUpload) {
               let noFileSpan = document.createElement('span');
               noFileSpan.className = 'text-[10px] text-slate-400';
               noFileSpan.textContent = '—';
               gdriveContainer.appendChild(noFileSpan);
             } else {
-              // Upload button for Client
+              // Upload button
               let uploadBtn = document.createElement('button');
               uploadBtn.type = 'button';
               uploadBtn.className = 'px-2.5 py-1 bg-slate-900 text-white hover:bg-slate-700 text-[9px] font-bold rounded transition shrink-0 shadow-sm';
@@ -2664,8 +2741,15 @@
             };
             gdriveContainer.appendChild(viewBtn);
 
-            // If not verified and user is client, and overall phase is not verified/locked, allow replace/remove
-            if (!isVerified && currentUser.role === 'client' && !isPhase3Verified && !isPhase3Locked) {
+            let canUploadOrRemove = false;
+            if (!isVerified && !isPhase3Verified && !isPhase3Locked) {
+              if (item.category === 'client') {
+                if (currentUser.role === 'client') canUploadOrRemove = true;
+              } else {
+                if (currentUser.role !== 'client') canUploadOrRemove = true;
+              }
+            }
+            if (canUploadOrRemove) {
               let removeBtn = document.createElement('button');
               removeBtn.type = 'button';
               removeBtn.className = 'text-slate-400 hover:text-red-500 transition shrink-0';
@@ -2680,13 +2764,21 @@
             }
           } else {
             // No file yet
-            if (isVerified || currentUser.role !== 'client' || isPhase3Verified || isPhase3Locked) {
+            let canUpload = false;
+            if (!isVerified && !isPhase3Verified && !isPhase3Locked) {
+              if (item.category === 'client') {
+                if (currentUser.role === 'client') canUpload = true;
+              } else {
+                if (currentUser.role !== 'client') canUpload = true;
+              }
+            }
+            if (!canUpload) {
               let noFileSpan = document.createElement('span');
               noFileSpan.className = 'text-[10px] text-slate-400';
               noFileSpan.textContent = '—';
               gdriveContainer.appendChild(noFileSpan);
             } else {
-              // Upload button for Client
+              // Upload button
               let uploadBtn = document.createElement('button');
               uploadBtn.type = 'button';
               uploadBtn.className = 'px-2.5 py-1 bg-slate-900 text-white hover:bg-slate-700 text-[9px] font-bold rounded transition shrink-0 shadow-sm';
@@ -2768,7 +2860,7 @@
         checkbox.type = 'checkbox';
         checkbox.id = 'chk-' + item.id;
         checkbox.checked = isVerified;
-        
+
         let colorClass = item.category === 'client' ? 'amber' : 'emerald';
         checkbox.className = `phase4-checkbox mt-0.5 h-4 w-4 rounded border-${colorClass}-300 text-${colorClass}-600 focus:ring-${colorClass}-500 shrink-0`;
 
@@ -2915,7 +3007,7 @@
         checkbox.type = 'checkbox';
         checkbox.id = 'chk-' + item.id;
         checkbox.checked = isVerified;
-        
+
         let colorClass = item.category === 'client' ? 'amber' : 'emerald';
         checkbox.className = `phase5-checkbox mt-0.5 h-4 w-4 rounded border-${colorClass}-300 text-${colorClass}-600 focus:ring-${colorClass}-500 shrink-0`;
 
@@ -3691,7 +3783,7 @@
               badge.textContent = 'PENDING';
               badge.className = 'px-2 py-0.5 text-[9px] font-bold uppercase rounded-md bg-red-50 text-red-600 border border-red-100';
 
-                if (currentUser.role === 'client') {
+              if (currentUser.role === 'client') {
                 if (p === 0 || p === 0.5 || p === 1 || p === 2 || p === 3 || p === 4 || p === 5 || p === 6 || p === 7 || p === 8) {
                   btn.classList.add('hidden');
                 } else {
@@ -3755,10 +3847,10 @@
             }
           }
           renderPhaseFileView(p, client);
-          
+
           card.classList.remove('cursor-pointer', 'select-none');
           card.onclick = null;
-          
+
           let headerDiv = card.firstElementChild;
           if (headerDiv) {
             headerDiv.classList.add('cursor-pointer', 'select-none');
@@ -3787,10 +3879,10 @@
 
       // Render Phase 5 dynamic checklists
       renderPhase5Checklist(client);
-        // Render Phase 6 dynamic checklists
-        renderPhase6Checklist(client);
-        renderPhase7Checklist(client);
-        renderPhase8Checklist(client);
+      // Render Phase 6 dynamic checklists
+      renderPhase6Checklist(client);
+      renderPhase7Checklist(client);
+      renderPhase8Checklist(client);
 
       // Populate and bind Phase 0 checkboxes dynamically
       const phase0Checklist = client.phase0Checklist || {};
@@ -5235,8 +5327,8 @@
       }
     });
   </script>
-<script src="compliance-notes.js"></script>
-<script src="responsive-sidebar.js"></script>
+  <script src="compliance-notes.js"></script>
+  <script src="responsive-sidebar.js"></script>
 </body>
 
 </html>
